@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review The Bafna Furniture</title>
+<style>
+* { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; }
+body { background-color: #f1f5f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 16px; }
+.card { background: #ffffff; border-radius: 18px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); max-width: 440px; width: 100%; padding: 24px; text-align: center; }
+.badge { display: inline-block; background: #fef3c7; color: #b45309; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 12px; }
+.stars { color: #f59e0b; font-size: 26px; margin-bottom: 6px; letter-spacing: 2px; }
+h1 { font-size: 20px; color: #0f172a; font-weight: 700; margin-bottom: 4px; }
+p.sub { font-size: 13px; color: #64748b; margin-bottom: 18px; }
+.options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.option-btn {
+background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 12px 14px;
+text-align: left; font-size: 13px; color: #334155; cursor: pointer; transition: all 0.2s ease;
+line-height: 1.4;
+}
+.option-btn:hover, .option-btn.selected {
+background: #eff6ff; border-color: #2563eb; color: #1e40af; font-weight: 500;
+}
+.submit-btn {
+width: 100%; background: #2563eb; color: #ffffff; border: none; border-radius: 12px;
+padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.2s ease;
+}
+.submit-btn:hover { background: #1d4ed8; }
+.hint { font-size: 12px; color: #64748b; margin-top: 12px; line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<div class="card">
+<div class="badge">40+ Years of Trust</div>
+<div class="stars">★★★★★</div>
+<h1>The Bafna Furniture</h1>
+<p class="sub">Tap an option below, then copy & paste on Google:</p>
+
+<div class="options">
+<!-- Option 1: General Quality & Price -->
+<button class="option-btn selected" onclick="selectOption(this, 'Best furniture shop in Satara! Bought quality wooden and steel furniture at very affordable prices. Excellent service and fast delivery.')">
+🛋️ <strong>Best Price & Quality:</strong><br>
+"Best furniture shop in Satara! Bought quality wooden and steel furniture at very affordable prices. Excellent service and fast delivery."
+</button>
+
+<!-- Option 2: Bedroom Furniture -->
+<button class="option-btn" onclick="selectOption(this, 'Purchased a durable wooden bed and wardrobe from The Bafna Furniture Satara. Excellent finishing, sturdy build, and trusted shop.')">
+🛏️ <strong>Bed & Wardrobe:</strong><br>
+"Purchased a durable wooden bed and wardrobe from The Bafna Furniture Satara. Excellent finishing, sturdy build, and trusted shop."
+</button>
+
+<!-- Option 3: Wholesale & Imported -->
+<button class="option-btn" onclick="selectOption(this, 'Great experience with Bafna Furniture! Wide variety of imported and steel furniture for home and contractor needs at direct wholesale rates.')">
+🏢 <strong>Wholesale & Variety:</strong><br>
+"Great experience with Bafna Furniture! Wide variety of imported and steel furniture for home and contractor needs at direct wholesale rates."
+</button>
+
+<!-- Option 4: Marathi Local Review -->
+<button class="option-btn" onclick="selectOption(this, 'सातारा मधील सर्वात जुने आणि खात्रीशीर फर्निचरचे दुकान! दर्जेदार लाकडी आणि स्टील फर्निचर वाजवी दरात मिळाले. बाफना एक विश्वास!')">
+🚩 <strong>मराठी रिव्ह्यू:</strong><br>
+"सातारा मधील सर्वात जुने आणि खात्रीशीर फर्निचरचे दुकान! दर्जेदार लाकडी आणि स्टील फर्निचर वाजवी दरात मिळाले. बाफना एक विश्वास!"
+</button>
+</div>
+
+<button class="submit-btn" id="goBtn" onclick="copyAndRedirect()">Copy & Open Google Review</button>
+<p class="hint">📋 Text copies automatically — just long-press to <strong>Paste</strong> and give 5 stars!</p>
+</div>
+
+<script>
+const GOOGLE_REVIEW_URL = "https://g.page/r/CXtSAphdamhgEBM/review";
+let selectedText = "Best furniture shop in Satara! Bought quality wooden and steel furniture at very affordable prices. Excellent service and fast delivery.";
+
+function selectOption(btn, text) {
+document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+btn.classList.add('selected');
+selectedText = text;
+}
+
+async function copyAndRedirect() {
+try {
+await navigator.clipboard.writeText(selectedText);
+} catch (err) {
+console.error("Clipboard error:", err);
+}
+window.location.href = GOOGLE_REVIEW_URL;
+}
+</script>
+</body>
+</html>
