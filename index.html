@@ -37,31 +37,43 @@ padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; transition: b
 <h1>The Bafna Furniture</h1>
 <p class="sub">Tap an option below, then copy & paste on Google:</p>
 
-<div class="options">
-<!-- Option 1: General Quality & Price -->
-<button class="option-btn selected" onclick="selectOption(this, 'Best furniture shop in Satara! Bought quality wooden and steel furniture at very affordable prices. Excellent service and fast delivery.')">
-🛋️ <strong>Best Price & Quality:</strong><br>
-"Best furniture shop in Satara! Bought quality wooden and steel furniture at very affordable prices. Excellent service and fast delivery."
-</button>
+    <div class="options">
+      <!-- English 1 -->
+      <button class="option-btn selected" onclick="selectOption(this, 'Best furniture shop in Satara! Top quality products, very reasonable prices, and fast delivery.')">
+        ⭐ <strong>Top Quality & Price:</strong><br>
+        "Best furniture shop in Satara! Top quality products, very reasonable prices, and fast delivery."
+      </button>
 
-<!-- Option 2: Bedroom Furniture -->
-<button class="option-btn" onclick="selectOption(this, 'Purchased a durable wooden bed and wardrobe from The Bafna Furniture Satara. Excellent finishing, sturdy build, and trusted shop.')">
-🛏️ <strong>Bed & Wardrobe:</strong><br>
-"Purchased a durable wooden bed and wardrobe from The Bafna Furniture Satara. Excellent finishing, sturdy build, and trusted shop."
-</button>
+      <!-- English 2 -->
+      <button class="option-btn" onclick="selectOption(this, 'Great collection of steel and wooden furniture. Sturdy build, polite staff, and trusted service.')">
+        🛋️ <strong>Great Collection & Staff:</strong><br>
+        "Great collection of steel and wooden furniture. Sturdy build, polite staff, and trusted service."
+      </button>
 
-<!-- Option 3: Wholesale & Imported -->
-<button class="option-btn" onclick="selectOption(this, 'Great experience with Bafna Furniture! Wide variety of imported and steel furniture for home and contractor needs at direct wholesale rates.')">
-🏢 <strong>Wholesale & Variety:</strong><br>
-"Great experience with Bafna Furniture! Wide variety of imported and steel furniture for home and contractor needs at direct wholesale rates."
-</button>
+      <!-- English 3 -->
+      <button class="option-btn" onclick="selectOption(this, 'Affordable rates and durable furniture. Highly recommended showroom in Satara!')">
+        🏬 <strong>Durable & Affordable:</strong><br>
+        "Affordable rates and durable furniture. Highly recommended showroom in Satara!"
+      </button>
 
-<!-- Option 4: Marathi Local Review -->
-<button class="option-btn" onclick="selectOption(this, 'सातारा मधील सर्वात जुने आणि खात्रीशीर फर्निचरचे दुकान! दर्जेदार लाकडी आणि स्टील फर्निचर वाजवी दरात मिळाले. बाफना एक विश्वास!')">
-🚩 <strong>मराठी रिव्ह्यू:</strong><br>
-"सातारा मधील सर्वात जुने आणि खात्रीशीर फर्निचरचे दुकान! दर्जेदार लाकडी आणि स्टील फर्निचर वाजवी दरात मिळाले. बाफना एक विश्वास!"
-</button>
-</div>
+      <!-- Marathi 1 -->
+      <button class="option-btn" onclick="selectOption(this, 'साताऱ्यातील सर्वोत्तम फर्निचरचे दुकान! उत्तम दर्जा आणि अगदी वाजवी दर.')">
+        🚩 <strong>मराठी (उत्तम दर्जा व दर):</strong><br>
+        "साताऱ्यातील सर्वोत्तम फर्निचरचे दुकान! उत्तम दर्जा आणि अगदी वाजवी दर."
+      </button>
+
+      <!-- Marathi 2 -->
+      <button class="option-btn" onclick="selectOption(this, 'बाफना फर्निचरचा अनुभव खूप छान राहिला. खात्रीशीर प्रॉडक्ट्स आणि वेळेवर डिलिव्हरी. बाफना एक विश्वास!')">
+        🚩 <strong>मराठी (विश्वास व सेवा):</strong><br>
+        "बाफना फर्निचरचा अनुभव खूप छान राहिला. खात्रीशीर प्रॉडक्ट्स आणि वेळेवर डिलिव्हरी. बाफना एक विश्वास!"
+      </button>
+
+      <!-- Marathi 3 -->
+      <button class="option-btn" onclick="selectOption(this, 'स्टील आणि लाकडी फर्निचरसाठी साताऱ्यातील विश्वासू ठिकाण. फिनिशिंग आणि क्वालिटी उत्तम आहे.')">
+        🚩 <strong>मराठी (व्हरायटी व फिनिशिंग):</strong><br>
+        "स्टील आणि लाकडी फर्निचरसाठी साताऱ्यातील विश्वासू ठिकाण. फिनिशिंग आणि क्वालिटी उत्तम आहे."
+      </button>
+    </div>
 
 <button class="submit-btn" id="goBtn" onclick="copyAndRedirect()">Copy & Open Google Review</button>
 <p class="hint">📋 Text copies automatically — just long-press to <strong>Paste</strong> and give 5 stars!</p>
@@ -79,7 +91,7 @@ selectedText = text;
 
 async function copyAndRedirect() {
 try {
-await navigator.clipboard.writeText(selectedText);
+await navigator.clipboard.writeText(selectedText); 
 } catch (err) {
 console.error("Clipboard error:", err);
 }
