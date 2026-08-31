@@ -4,99 +4,598 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Review The Bafna Furniture</title>
+
 <style>
-* { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; }
-body { background-color: #f1f5f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 16px; }
-.card { background: #ffffff; border-radius: 18px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); max-width: 440px; width: 100%; padding: 24px; text-align: center; }
-.badge { display: inline-block; background: #fef3c7; color: #b45309; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; margin-bottom: 12px; }
-.stars { color: #f59e0b; font-size: 26px; margin-bottom: 6px; letter-spacing: 2px; }
-h1 { font-size: 20px; color: #0f172a; font-weight: 700; margin-bottom: 4px; }
-p.sub { font-size: 13px; color: #64748b; margin-bottom: 18px; }
-.options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
-.option-btn {
-background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 12px 14px;
-text-align: left; font-size: 13px; color: #334155; cursor: pointer; transition: all 0.2s ease;
-line-height: 1.4;
+*{
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  margin:0;
+  padding:0
 }
-.option-btn:hover, .option-btn.selected {
-background: #eff6ff; border-color: #2563eb; color: #1e40af; font-weight: 500;
+
+body{
+  background:#f1f5f9;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:15px
 }
-.submit-btn {
-width: 100%; background: #2563eb; color: #ffffff; border: none; border-radius: 12px;
-padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.2s ease;
+
+.card{
+  background:#fff;
+  width:100%;
+  max-width:430px;
+  padding:23px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08)
 }
-.submit-btn:hover { background: #1d4ed8; }
-.hint { font-size: 12px; color: #64748b; margin-top: 12px; line-height: 1.4; }
+
+.header{text-align:center}
+
+.badge{
+  display:inline-block;
+  background:#fef3c7;
+  color:#b45309;
+  padding:5px 11px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:10px
+}
+
+.stars{
+  color:#f59e0b;
+  font-size:27px;
+  letter-spacing:2px
+}
+
+h1{
+  color:#0f172a;
+  font-size:21px;
+  margin-top:5px
+}
+
+.sub{
+  color:#64748b;
+  font-size:13px;
+  margin:5px 0 22px
+}
+
+.title{
+  color:#334155;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:9px
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+  margin-bottom:19px
+}
+
+.choice,.topic{
+  background:#f8fafc;
+  border:2px solid #e2e8f0;
+  border-radius:12px;
+  padding:12px 7px;
+  cursor:pointer;
+  color:#334155;
+  font-weight:650;
+  font-size:13px
+}
+
+.choice.selected,.topic.selected{
+  background:#eff6ff;
+  border-color:#2563eb;
+  color:#1d4ed8
+}
+
+.topic{
+  font-size:12px
+}
+
+.generate{
+  width:100%;
+  background:#2563eb;
+  color:white;
+  border:0;
+  border-radius:12px;
+  padding:14px;
+  font-size:15px;
+  font-weight:750;
+  cursor:pointer
+}
+
+.generate:disabled{
+  opacity:.6
+}
+
+.result{
+  display:none;
+  margin-top:20px
+}
+
+.result-title{
+  font-size:14px;
+  font-weight:700;
+  color:#334155;
+  margin-bottom:9px
+}
+
+.review{
+  background:#f8fafc;
+  border:2px solid #e2e8f0;
+  border-radius:13px;
+  padding:13px;
+  margin-bottom:9px;
+  cursor:pointer;
+  text-align:left
+}
+
+.review.selected{
+  background:#eff6ff;
+  border-color:#2563eb
+}
+
+.label{
+  font-size:10px;
+  font-weight:800;
+  color:#64748b;
+  margin-bottom:5px
+}
+
+.text{
+  color:#334155;
+  font-size:13px;
+  line-height:1.5
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+  margin-top:11px
+}
+
+.copy{
+  flex:1;
+  background:#16a34a;
+  color:white;
+  border:0;
+  border-radius:11px;
+  padding:13px 7px;
+  font-size:13px;
+  font-weight:750
+}
+
+.again{
+  flex:1;
+  background:white;
+  color:#2563eb;
+  border:2px solid #2563eb;
+  border-radius:11px;
+  padding:11px 7px;
+  font-size:13px;
+  font-weight:750
+}
+
+.status{
+  text-align:center;
+  color:#64748b;
+  font-size:11px;
+  margin-top:9px
+}
+
+.hint{
+  text-align:center;
+  color:#64748b;
+  font-size:11px;
+  line-height:1.5;
+  margin-top:14px
+}
 </style>
 </head>
+
 <body>
 
 <div class="card">
+
+<div class="header">
+
 <div class="badge">40+ Years of Trust</div>
+
 <div class="stars">★★★★★</div>
+
 <h1>The Bafna Furniture</h1>
-<p class="sub">Tap an option below, then copy & paste on Google:</p>
 
-    <div class="options">
-      <!-- English 1 -->
-      <button class="option-btn selected" onclick="selectOption(this, 'Best furniture shop in Satara! Top quality products, very reasonable prices, and fast delivery.')">
-        ⭐ <strong>Top Quality & Price:</strong><br>
-        "Best furniture shop in Satara! Top quality products, very reasonable prices, and fast delivery."
-      </button>
+<p class="sub">
+तुमचा अनुभव आमच्यासोबत शेअर करा
+</p>
 
-      <!-- English 2 -->
-      <button class="option-btn" onclick="selectOption(this, 'Great collection of steel and wooden furniture. Sturdy build, polite staff, and trusted service.')">
-        🛋️ <strong>Great Collection & Staff:</strong><br>
-        "Great collection of steel and wooden furniture. Sturdy build, polite staff, and trusted service."
-      </button>
-
-      <!-- English 3 -->
-      <button class="option-btn" onclick="selectOption(this, 'Affordable rates and durable furniture. Highly recommended showroom in Satara!')">
-        🏬 <strong>Durable & Affordable:</strong><br>
-        "Affordable rates and durable furniture. Highly recommended showroom in Satara!"
-      </button>
-
-      <!-- Marathi 1 -->
-      <button class="option-btn" onclick="selectOption(this, 'साताऱ्यातील सर्वोत्तम फर्निचरचे दुकान! उत्तम दर्जा आणि अगदी वाजवी दर.')">
-        🚩 <strong>मराठी (उत्तम दर्जा व दर):</strong><br>
-        "साताऱ्यातील सर्वोत्तम फर्निचरचे दुकान! उत्तम दर्जा आणि अगदी वाजवी दर."
-      </button>
-
-      <!-- Marathi 2 -->
-      <button class="option-btn" onclick="selectOption(this, 'बाफना फर्निचरचा अनुभव खूप छान राहिला. खात्रीशीर प्रॉडक्ट्स आणि वेळेवर डिलिव्हरी. बाफना एक विश्वास!')">
-        🚩 <strong>मराठी (विश्वास व सेवा):</strong><br>
-        "बाफना फर्निचरचा अनुभव खूप छान राहिला. खात्रीशीर प्रॉडक्ट्स आणि वेळेवर डिलिव्हरी. बाफना एक विश्वास!"
-      </button>
-
-      <!-- Marathi 3 -->
-      <button class="option-btn" onclick="selectOption(this, 'स्टील आणि लाकडी फर्निचरसाठी साताऱ्यातील विश्वासू ठिकाण. फिनिशिंग आणि क्वालिटी उत्तम आहे.')">
-        🚩 <strong>मराठी (व्हरायटी व फिनिशिंग):</strong><br>
-        "स्टील आणि लाकडी फर्निचरसाठी साताऱ्यातील विश्वासू ठिकाण. फिनिशिंग आणि क्वालिटी उत्तम आहे."
-      </button>
-    </div>
-
-<button class="submit-btn" id="goBtn" onclick="copyAndRedirect()">Copy & Open Google Review</button>
-<p class="hint">📋 Text copies automatically — just long-press to <strong>Paste</strong> and give 5 stars!</p>
 </div>
 
+
+<!-- RATING -->
+
+<div class="title">
+⭐ तुमचा अनुभव कसा होता?
+</div>
+
+<div class="grid">
+
+<button class="choice selected"
+onclick="setRating(5,this)">
+⭐⭐⭐⭐⭐<br>
+छान
+</button>
+
+<button class="choice"
+onclick="setRating(4,this)">
+⭐⭐⭐⭐<br>
+चांगला
+</button>
+
+</div>
+
+
+<!-- LANGUAGE -->
+
+<div class="title">
+🌐 भाषा / Language
+</div>
+
+<div class="grid">
+
+<button class="choice selected"
+onclick="setLanguage('Marathi',this)">
+🇮🇳<br>मराठी
+</button>
+
+<button class="choice"
+onclick="setLanguage('English',this)">
+🇬🇧<br>English
+</button>
+
+</div>
+
+
+<!-- TOPICS -->
+
+<div class="title">
+❤️ काय आवडलं?
+</div>
+
+<div class="grid">
+
+<button class="topic selected"
+onclick="toggleTopic(this,'quality')">
+🛋️<br>फर्निचर
+</button>
+
+<button class="topic"
+onclick="toggleTopic(this,'price')">
+💰<br>किंमत
+</button>
+
+<button class="topic"
+onclick="toggleTopic(this,'staff')">
+😊<br>सेवा
+</button>
+
+<button class="topic"
+onclick="toggleTopic(this,'delivery')">
+🚚<br>डिलिव्हरी
+</button>
+
+<button class="topic"
+onclick="toggleTopic(this,'collection')">
+🏠<br>कलेक्शन
+</button>
+
+<button class="topic"
+onclick="toggleTopic(this,'overall')">
+❤️<br>सर्वच
+</button>
+
+</div>
+
+
+<!-- AI -->
+
+<button class="generate"
+id="generateBtn"
+onclick="generateReviews()">
+
+✨ माझ्यासाठी रिव्ह्यू तयार करा
+
+</button>
+
+
+<!-- RESULTS -->
+
+<div class="result" id="result">
+
+<div class="result-title">
+✨ तुमच्यासाठी रिव्ह्यू:
+</div>
+
+<div id="reviews"></div>
+
+<div class="actions">
+
+<button class="copy"
+onclick="copyReview()">
+📋 कॉपी करा & Google
+</button>
+
+<button class="again"
+onclick="generateReviews()">
+🔄 दुसरा
+</button>
+
+</div>
+
+<div class="status" id="status"></div>
+
+</div>
+
+
+<p class="hint">
+रिव्ह्यू तुमच्या खऱ्या अनुभवाप्रमाणे आवश्यक असल्यास बदला.
+</p>
+
+</div>
+
+
 <script>
-const GOOGLE_REVIEW_URL = "https://g.page/r/CXtSAphdamhgEBM/review";
-let selectedText = "Best furniture shop in Satara! Bought quality wooden and steel furniture at very affordable prices. Excellent service and fast delivery.";
 
-function selectOption(btn, text) {
-document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-btn.classList.add('selected');
-selectedText = text;
+const API_URL="YOUR_CLOUDFLARE_WORKER_URL";
+
+const GOOGLE_REVIEW_URL=
+"https://g.page/r/CXtSAphdamhgEBM/review";
+
+let rating=5;
+let language="Marathi";
+let topics=["quality"];
+let selectedReview="";
+
+
+function setRating(value,button){
+
+rating=value;
+
+button.parentElement
+.querySelectorAll(".choice")
+.forEach(b=>b.classList.remove("selected"));
+
+button.classList.add("selected");
+
 }
 
-async function copyAndRedirect() {
-try {
-await navigator.clipboard.writeText(selectedText); 
-} catch (err) {
-console.error("Clipboard error:", err);
+
+function setLanguage(value,button){
+
+language=value;
+
+button.parentElement
+.querySelectorAll(".choice")
+.forEach(b=>b.classList.remove("selected"));
+
+button.classList.add("selected");
+
 }
-window.location.href = GOOGLE_REVIEW_URL;
+
+
+function toggleTopic(button,topic){
+
+button.classList.toggle("selected");
+
+if(button.classList.contains("selected")){
+
+if(!topics.includes(topic))
+topics.push(topic);
+
+}else{
+
+topics=topics.filter(t=>t!==topic);
+
 }
+
+}
+
+
+async function generateReviews(){
+
+if(topics.length===0){
+
+alert(
+language==="Marathi"
+?"कृपया कमीत कमी एक पर्याय निवडा."
+:"Please select at least one option."
+);
+
+return;
+
+}
+
+
+const btn=document.getElementById("generateBtn");
+const result=document.getElementById("result");
+const reviews=document.getElementById("reviews");
+const status=document.getElementById("status");
+
+
+btn.disabled=true;
+
+btn.textContent=
+"✨ रिव्ह्यू तयार होत आहे...";
+
+result.style.display="block";
+
+reviews.innerHTML=
+"<div class='review'><div class='text'>थोडा वेळ...</div></div>";
+
+status.textContent="";
+
+
+try{
+
+const response=await fetch(API_URL,{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+rating:rating,
+
+language:language,
+
+topics:topics
+
+})
+
+});
+
+
+if(!response.ok)
+throw new Error("Request failed");
+
+
+const data=await response.json();
+
+
+if(!data.reviews ||
+!Array.isArray(data.reviews))
+throw new Error("Invalid response");
+
+
+reviews.innerHTML="";
+
+
+data.reviews.slice(0,3)
+.forEach((text,index)=>{
+
+const div=document.createElement("div");
+
+div.className=
+"review"+
+(index===0?" selected":"");
+
+div.innerHTML=`
+
+<div class="label">
+OPTION ${index+1}
+</div>
+
+<div class="text">
+${escapeHTML(text)}
+</div>
+
+`;
+
+div.onclick=()=>{
+
+document
+.querySelectorAll(".review")
+.forEach(x=>
+x.classList.remove("selected")
+);
+
+div.classList.add("selected");
+
+selectedReview=text;
+
+};
+
+reviews.appendChild(div);
+
+});
+
+
+selectedReview=data.reviews[0];
+
+status.textContent=
+"तुमच्या अनुभवाशी जुळणारा रिव्ह्यू निवडा.";
+
+
+}catch(error){
+
+console.error(error);
+
+reviews.innerHTML="";
+
+status.textContent=
+"काहीतरी चुकले. पुन्हा प्रयत्न करा.";
+
+}
+
+
+btn.disabled=false;
+
+btn.textContent=
+"✨ माझ्यासाठी रिव्ह्यू तयार करा";
+
+}
+
+
+async function copyReview(){
+
+if(!selectedReview){
+
+alert("कृपया रिव्ह्यू निवडा.");
+
+return;
+
+}
+
+
+try{
+
+await navigator.clipboard.writeText(
+selectedReview
+);
+
+document.getElementById("status")
+.textContent=
+"✓ कॉपी झाले! Google उघडत आहे...";
+
+setTimeout(()=>{
+
+window.location.href=
+GOOGLE_REVIEW_URL;
+
+},700);
+
+
+}catch(error){
+
+alert(
+"कॉपी करता आले नाही. कृपया रिव्ह्यू manually copy करा."
+);
+
+}
+
+}
+
+
+function escapeHTML(text){
+
+const div=
+document.createElement("div");
+
+div.textContent=text;
+
+return div.innerHTML;
+
+}
+
 </script>
+
 </body>
 </html>
