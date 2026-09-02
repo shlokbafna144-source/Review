@@ -1,391 +1,516 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>The Bafna Furniture — Customer Reviews</title>  <style>
+    :root {
+      --primary: #8c531b;
+      --primary-dark: #6e3e11;
+      --primary-light: #f1e7dc;
+      --bg: #fbf9f5;
+      --card: #ffffff;
+      --text: #2c2523;
+      --muted: #6b635b;
+      --border: #e8e2d8;
+      --success: #287a45;
+    }
 
-  <title>Review The Bafna Furniture</title>
-
-  <style>
     * {
       box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, sans-serif;
       margin: 0;
       padding: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
     }
 
     body {
-      background-color: #f1f5f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 16px;
+      background: var(--bg);
+      color: var(--text);
+      padding: 22px 15px 35px;
+      line-height: 1.5;
     }
 
-    .card {
-      background: #ffffff;
-      border-radius: 18px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      max-width: 440px;
+    .container {
       width: 100%;
-      padding: 24px;
+      max-width: 580px;
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    .header {
       text-align: center;
+      padding: 8px 5px 22px;
     }
 
     .badge {
       display: inline-block;
-      background: #fef3c7;
-      color: #b45309;
+      background: var(--primary-light);
+      color: var(--primary-dark);
       font-size: 12px;
       font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 12px;
+      padding: 5px 13px;
+      border-radius: 50px;
+      margin-bottom: 10px;
     }
 
     .stars {
-      color: #f59e0b;
-      font-size: 26px;
-      margin-bottom: 6px;
-      letter-spacing: 2px;
+      color: #e69500;
+      font-size: 19px;
+      letter-spacing: 3px;
+      margin-bottom: 5px;
     }
 
     h1 {
-      font-size: 20px;
-      color: #0f172a;
-      font-weight: 700;
-      margin-bottom: 4px;
+      font-size: 27px;
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 7px;
     }
 
-    p.sub {
-      font-size: 13px;
-      color: #64748b;
-      margin-bottom: 18px;
-      line-height: 1.45;
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 470px;
+      margin: auto;
     }
 
-    .options {
+    /* GOOGLE BUTTON */
+
+    .google-button {
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .option-btn {
-      background: #f8fafc;
-      border: 2px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 12px 14px;
-      text-align: left;
-      font-size: 13px;
-      color: #334155;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      line-height: 1.45;
-    }
-
-    .option-btn:hover,
-    .option-btn.selected {
-      background: #eff6ff;
-      border-color: #2563eb;
-      color: #1e40af;
-      font-weight: 500;
-    }
-
-    .option-btn strong {
-      font-weight: 700;
-    }
-
-    .submit-btn {
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
       width: 100%;
-      background: #2563eb;
-      color: #ffffff;
-      border: none;
-      border-radius: 12px;
-      padding: 14px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      padding: 13px 18px;
+      border-radius: 10px;
       font-size: 15px;
       font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s ease, transform 0.1s ease;
+      margin: 5px 0 25px;
+      box-shadow: 0 4px 12px rgba(140, 83, 27, 0.18);
+      transition: 0.15s ease;
     }
 
-    .submit-btn:hover {
-      background: #1d4ed8;
+    .google-button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
     }
 
-    .submit-btn:active {
-      transform: scale(0.98);
+    .google-icon {
+      background: white;
+      color: #4285f4;
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
     }
 
-    .submit-btn:disabled {
-      opacity: 0.7;
-      cursor: wait;
-    }
+    /* SECTION */
 
-    .hint {
+    .section-title {
       font-size: 12px;
-      color: #64748b;
-      margin-top: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--muted);
+      margin: 23px 0 11px;
+      font-weight: 800;
+    }
+
+    /* REVIEW CARD */
+
+    .review-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 16px;
+      margin-bottom: 11px;
+      cursor: pointer;
+      position: relative;
+      transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.025);
+    }
+
+    .review-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(140, 83, 27, 0.08);
+    }
+
+    .review-card:active {
+      transform: scale(0.99);
+    }
+
+    .review-card.copied {
+      border-color: var(--success);
+      background: #f7fcf8;
+    }
+
+    .review-tag {
+      display: block;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 750;
+      margin-bottom: 6px;
+    }
+
+    .review-text {
+      color: var(--text);
+      font-size: 14.5px;
       line-height: 1.5;
     }
 
-    .language-note {
-      font-size: 11px;
-      color: #94a3b8;
-      margin-top: 8px;
+    .tap-hint {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 11px;
+      color: var(--muted);
+      font-size: 11.5px;
+      font-weight: 650;
     }
 
-    @media (max-width: 360px) {
-      .card {
-        padding: 19px;
+    .review-card.copied .tap-hint {
+      color: var(--success);
+    }
+
+    /* FOOTER */
+
+    .footer {
+      text-align: center;
+      margin-top: 23px;
+      padding: 15px;
+      background: var(--primary-light);
+      border-radius: 12px;
+      color: var(--primary-dark);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .footer strong {
+      font-weight: 800;
+    }
+
+    /* TOAST */
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%) translateY(90px);
+      background: var(--text);
+      color: white;
+      padding: 11px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 650;
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        transform 0.28s ease,
+        opacity 0.28s ease;
+      box-shadow: 0 7px 22px rgba(0,0,0,0.22);
+      z-index: 1000;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 420px) {
+      body {
+        padding: 18px 12px 30px;
       }
 
-      .option-btn {
-        font-size: 12px;
+      h1 {
+        font-size: 25px;
+      }
+
+      .subtitle {
+        font-size: 13.5px;
+      }
+
+      .review-card {
+        padding: 15px;
+      }
+
+      .review-text {
+        font-size: 14px;
       }
     }
-  </style>
-</head>
+  </style></head><body>  <div class="container"><!-- HEADER -->
 
-<body>
+<div class="header">
 
-  <div class="card">
+  <div class="badge">Serving Customers Since 1985</div>
 
-    <div class="badge">
-      40+ Years of Trust
-    </div>
+  <div class="stars">★★★★★</div>
 
-    <div class="stars">
-      ★★★★★
-    </div>
+  <h1>The Bafna Furniture</h1>
 
-    <h1>
-      The Bafna Furniture
-    </h1>
+  <p class="subtitle">
+    We value your genuine feedback. Choose a prompt below if it helps you
+    put your experience into words.
+  </p>
 
-    <p class="sub">
-      Tap an option below, then copy & paste on Google:
-    </p>
+</div>
 
 
-    <div class="options">
+<!-- GOOGLE REVIEW BUTTON -->
 
-      <!-- ENGLISH 1 -->
+<!-- Replace YOUR_GOOGLE_REVIEW_LINK with your actual Google review link -->
 
-      <button
-        class="option-btn selected"
-        onclick="selectOption(
-          this,
-          'Bought furniture from Bafna Furniture. Quality is good and the price was also reasonable. Overall happy with the purchase.'
-        )">
-
-        ⭐ <strong>Good Quality & Price:</strong><br>
-
-        "Bought furniture from Bafna Furniture.
-        Quality is good and the price was also reasonable.
-        Overall happy with the purchase."
-
-      </button>
+<a
+  class="google-button"
+  href="YOUR_GOOGLE_REVIEW_LINK"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <span class="google-icon">G</span>
+  Write a Google Review
+</a>
 
 
-      <!-- ENGLISH 2 -->
+<!-- ENGLISH -->
 
-      <button
-        class="option-btn"
-        onclick="selectOption(
-          this,
-          'They have a good collection of wooden and steel furniture. Staff was helpful and showed us different options. Good experience overall.'
-        )">
-
-        🛋️ <strong>Collection & Staff:</strong><br>
-
-        "They have a good collection of wooden and steel furniture.
-        Staff was helpful and showed us different options.
-        Good experience overall."
-
-      </button>
+<div class="section-title">English — Review Ideas</div>
 
 
-      <!-- ENGLISH 3 -->
+<div class="review-card" onclick="copyReview(this)">
+  <span class="review-tag">Friendly Service</span>
 
-      <button
-        class="option-btn"
-        onclick="selectOption(
-          this,
-          'Got good quality furniture at a reasonable price. The furniture feels sturdy and the overall experience was good.'
-        )">
+  <p class="review-text">
+    Had a really good experience here. The owner and staff were polite
+    and explained everything properly without rushing us.
+  </p>
 
-        🏬 <strong>Durable & Affordable:</strong><br>
-
-        "Got good quality furniture at a reasonable price.
-        The furniture feels sturdy and the overall experience was good."
-
-      </button>
+  <div class="tap-hint">📋 Tap to copy</div>
+</div>
 
 
-      <!-- MARATHI 1 -->
+<div class="review-card" onclick="copyReview(this)">
+  <span class="review-tag">Furniture Quality</span>
 
-      <button
-        class="option-btn"
-        onclick="selectOption(
-          this,
-          'बाफना फर्निचरमधून फर्निचर घेतले होते. क्वालिटी चांगली होती आणि दरही योग्य होते. खरेदीचा अनुभव छान आला.'
-        )">
+  <p class="review-text">
+    Really liked the quality of the furniture. The build feels strong
+    and the finishing is also very good. Overall, happy with the purchase.
+  </p>
 
-        🚩 <strong>मराठी (दर्जा व दर):</strong><br>
-
-        "बाफना फर्निचरमधून फर्निचर घेतले होते.
-        क्वालिटी चांगली होती आणि दरही योग्य होते.
-        खरेदीचा अनुभव छान आला."
-
-      </button>
+  <div class="tap-hint">📋 Tap to copy</div>
+</div>
 
 
-      <!-- MARATHI 2 -->
+<div class="review-card" onclick="copyReview(this)">
+  <span class="review-tag">Good Experience</span>
 
-      <button
-        class="option-btn"
-        onclick="selectOption(
-          this,
-          'लाकडी आणि स्टील फर्निचरचे कलेक्शन चांगले आहे. फर्निचर घेताना स्टाफनेही व्यवस्थित मदत केली. एकूण अनुभव चांगला आला.'
-        )">
+  <p class="review-text">
+    Good collection and helpful staff. They gave us enough time to look
+    around and helped us choose something that suited our home.
+  </p>
 
-        🚩 <strong>मराठी (कलेक्शन व सेवा):</strong><br>
-
-        "लाकडी आणि स्टील फर्निचरचे कलेक्शन चांगले आहे.
-        फर्निचर घेताना स्टाफनेही व्यवस्थित मदत केली.
-        एकूण अनुभव चांगला आला."
-
-      </button>
+  <div class="tap-hint">📋 Tap to copy</div>
+</div>
 
 
-      <!-- MARATHI 3 -->
+<div class="review-card" onclick="copyReview(this)">
+  <span class="review-tag">Delivery</span>
 
-      <button
-        class="option-btn"
-        onclick="selectOption(
-          this,
-          'बाफना फर्निचरमधून फर्निचर घेतले होते. क्वालिटी आणि मजबुती चांगली आहे. दरही योग्य होते. एकूणच अनुभव चांगला आला.'
-        )">
+  <p class="review-text">
+    Delivery was on time and the furniture was handled properly. Overall
+    the whole process was smooth and hassle-free.
+  </p>
 
-        🚩 <strong>मराठी (क्वालिटी व मजबुती):</strong><br>
-
-        "बाफना फर्निचरमधून फर्निचर घेतले होते.
-        क्वालिटी आणि मजबुती चांगली आहे.
-        दरही योग्य होते.
-        एकूणच अनुभव चांगला आला."
-
-      </button>
-
-    </div>
+  <div class="tap-hint">📋 Tap to copy</div>
+</div>
 
 
-    <button
-      class="submit-btn"
-      id="goBtn"
-      onclick="copyAndRedirect()">
+<div class="review-card" onclick="copyReview(this)">
+  <span class="review-tag">Value for Money</span>
 
-      Copy & Open Google Review
+  <p class="review-text">
+    Good quality furniture at a reasonable price. The staff was also
+    helpful throughout the purchase. Would definitely visit again.
+  </p>
 
-    </button>
-
-
-    <p class="hint" id="hint">
-      📋 Text copies automatically — then paste it on Google
-      and give your genuine rating.
-    </p>
-
-    <p class="language-note">
-      मराठी आणि English दोन्ही पर्याय उपलब्ध आहेत.
-    </p>
-
-  </div>
+  <div class="tap-hint">📋 Tap to copy</div>
+</div>
 
 
-  <script>
+<!-- MARATHI -->
 
-    const GOOGLE_REVIEW_URL =
-      "https://g.page/r/CXtSAphdamhgEBM/review";
-
-
-    let selectedText =
-      "Bought furniture from Bafna Furniture. Quality is good and the price was also reasonable. Overall happy with the purchase.";
+<div class="section-title">मराठी — पर्याय</div>
 
 
-    function selectOption(btn, text) {
+<div class="review-card" onclick="copyReview(this)">
+  <span class="review-tag">नम्र सेवा</span>
 
-      document
-        .querySelectorAll(".option-btn")
-        .forEach(function(button) {
-          button.classList.remove("selected");
+  <p class="review-text">
+    मालक आणि स्टाफ खूप नम्र आहेत. व्यवस्थित वेळ देऊन सगळं समजावून
+    सांगितलं. एकूण अनुभव खूप चांगला होता.
+  </p>
+
+  <div class="tap-hint">📋 कॉपी करण्यासाठी टॅप करा</div>
+</div>
+
+
+<div class="review-card" onclick="copyReview(this)">
+  <span class="review-tag">फर्निचरची क्वालिटी</span>
+
+  <p class="review-text">
+    फर्निचरची क्वालिटी खूप चांगली आहे. लाकूड मजबूत आहे आणि फिनिशिंगही
+    छान आहे. घेतलेली वस्तू आवडली.
+  </p>
+
+  <div class="tap-hint">📋 कॉपी करण्यासाठी टॅप करा</div>
+</div>
+
+
+<div class="review-card" onclick="copyReview(this)">
+  <span class="review-tag">चांगला अनुभव</span>
+
+  <p class="review-text">
+    दुकानात चांगली व्हरायटी आहे. स्टाफने व्यवस्थित मार्गदर्शन केलं आणि
+    निवड करताना खूप मदत झाली. चांगला अनुभव.
+  </p>
+
+  <div class="tap-hint">📋 कॉपी करण्यासाठी टॅप करा</div>
+</div>
+
+
+<div class="review-card" onclick="copyReview(this)">
+  <span class="review-tag">डिलिव्हरी</span>
+
+  <p class="review-text">
+    वेळेवर डिलिव्हरी मिळाली आणि सामान व्यवस्थित पोहोचवलं. पूर्ण
+    प्रोसेस अगदी व्यवस्थित झाली.
+  </p>
+
+  <div class="tap-hint">📋 कॉपी करण्यासाठी टॅप करा</div>
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+  <strong>तुमचा खरा अनुभव आमच्यासाठी महत्त्वाचा आहे.</strong><br>
+  वरील पर्याय फक्त शब्द सुचवण्यासाठी आहेत — तुमच्या अनुभवाप्रमाणे
+  रिव्ह्यूमध्ये बदल करून पोस्ट करा.
+</div>
+
+  </div>  <!-- TOAST -->  <div id="toast" class="toast">
+    ✓ Copied — now paste it on Google
+  </div>  <script>
+
+    let toastTimer;
+
+    function copyReview(card) {
+
+      const text = card.querySelector(".review-text").innerText;
+      const hint = card.querySelector(".tap-hint");
+
+      function copied() {
+
+        document.querySelectorAll(".review-card").forEach(function(item) {
+          item.classList.remove("copied");
         });
 
-      btn.classList.add("selected");
+        document.querySelectorAll(".tap-hint").forEach(function(item) {
+          if (item.innerText.includes("Copied")) {
+            item.innerText = "📋 Tap to copy";
+          }
+          if (item.innerText.includes("कॉपी")) {
+            item.innerText = "📋 कॉपी करण्यासाठी टॅप करा";
+          }
+        });
 
-      selectedText = text;
+        card.classList.add("copied");
 
-    }
+        if (hint.innerText.includes("कॉपी")) {
+          hint.innerText = "✓ कॉपी झाले — Google वर पेस्ट करा";
+        } else {
+          hint.innerText = "✓ Copied — paste it on Google";
+        }
 
+        const toast = document.getElementById("toast");
 
-    async function copyAndRedirect() {
+        toast.classList.remove("show");
 
-      const button =
-        document.getElementById("goBtn");
-
-      const hint =
-        document.getElementById("hint");
-
-
-      button.disabled = true;
-
-      button.textContent =
-        "📋 Copying...";
-
-
-      try {
-
-        await navigator.clipboard.writeText(
-          selectedText
-        );
-
-
-        hint.textContent =
-          "✓ Review copied! Opening Google...";
-
+        clearTimeout(toastTimer);
 
         setTimeout(function() {
+          toast.classList.add("show");
+        }, 20);
 
-          window.location.href =
-            GOOGLE_REVIEW_URL;
-
-        }, 500);
-
-
-      } catch (error) {
-
-        console.error(
-          "Clipboard error:",
-          error
-        );
-
-
-        hint.innerHTML =
-          "📋 Automatic copy unavailable.<br>" +
-          "Please copy the review manually.";
-
-
-        button.disabled = false;
-
-        button.textContent =
-          "Open Google Review";
-
+        toastTimer = setTimeout(function() {
+          toast.classList.remove("show");
+        }, 2500);
       }
 
+
+      /* Modern clipboard */
+
+      if (navigator.clipboard && window.isSecureContext) {
+
+        navigator.clipboard
+          .writeText(text)
+          .then(copied)
+          .catch(function() {
+            fallbackCopy(text, copied);
+          });
+
+      } else {
+
+        fallbackCopy(text, copied);
+
+      }
     }
 
-  </script>
 
-</body>
+    /* Clipboard fallback */
+
+    function fallbackCopy(text, callback) {
+
+      const textarea = document.createElement("textarea");
+
+      textarea.value = text;
+
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+
+      document.body.appendChild(textarea);
+
+      textarea.focus();
+      textarea.select();
+
+      try {
+        document.execCommand("copy");
+        callback();
+      } catch (error) {
+        alert("Please select and copy the review manually.");
+      }
+
+      document.body.removeChild(textarea);
+    }
+
+  </script></body>
 </html>
