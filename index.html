@@ -312,161 +312,177 @@
 
     // Pools of variations to create distinct sentence structures
     const templates = {
-      'en-service': {
-        intros: [
-          "Had a really good experience here.",
-          "Visited The Bafna Furniture recently and was impressed.",
-          "Great customer support and hospitality."
-        ],
-        bodies: [
-          "The owner and staff were polite and explained everything properly without rushing us.",
-          "The team is courteous, patient, and helped us compare the best options.",
-          "Everyone was welcoming and took their time to understand our exact requirements."
-        ],
-        outros: [
-          "Appreciate the honest service!",
-          "Very smooth experience overall.",
-          "Will definitely recommend them."
-        ]
-      },
-      'en-quality': {
-        intros: [
-          "Really liked the quality of the furniture.",
-          "The build and finishing are top-notch.",
-          "Impressed by the craftsmanship of the items."
-        ],
-        bodies: [
-          "The build feels strong and the polish is very clean.",
-          "Solid wood material and very sturdy design for our home.",
-          "The attention to detail and material durability is commendable."
-        ],
-        outros: [
-          "Overall, very happy with the purchase.",
-          "Totally worth the investment.",
-          "Great addition to our room."
-        ]
-      },
-      'en-experience': {
-        intros: [
-          "Good collection and helpful staff.",
-          "Had a very pleasant shopping experience here.",
-          "Great store with plenty of design varieties."
-        ],
-        bodies: [
-          "They gave us enough time to look around and helped us choose something suited for our home.",
-          "The staff helped us pick the right setup without pushing anything unnecessary.",
-          "They have a wide range of options to match modern interiors."
-        ],
-        outros: [
-          "Definitely coming back for future furniture needs.",
-          "Thank you for the wonderful service.",
-          "Highly recommended furniture store!"
-        ]
-      },
-      'en-delivery': {
-        intros: [
-          "Delivery was on time and prompt.",
-          "Very pleased with their delivery service.",
-          "Timely delivery and neat packaging."
-        ],
-        bodies: [
-          "The furniture was handled properly and assembled with care.",
-          "No scratches or issues, the logistics team was very cautious.",
-          "Everything arrived in perfect condition right on schedule."
-        ],
-        outros: [
-          "Overall the whole process was smooth and hassle-free.",
-          "Extremely reliable delivery team.",
-          "Great end-to-end service."
-        ]
-      },
-      'en-value': {
-        intros: [
-          "Good quality furniture at a reasonable price.",
-          "Affordable prices without compromising on quality.",
-          "True value for money."
-        ],
-        bodies: [
-          "The staff was helpful throughout the purchase and gave us a genuine deal.",
-          "Rates are competitive compared to the market for solid craftsmanship.",
-          "Completely justified pricing for the durability provided."
-        ],
-        outros: [
-          "Would definitely visit again.",
-          "A trustworthy shop for budget and premium buyers alike.",
-          "Great deal all around."
-        ]
-      },
-      // Marathi Pools
-      'mr-service': {
-        intros: [
-          "मालक आणि स्टाफ खूप नम्र आहेत.",
-          "येथील सर्व कर्मचाऱ्यांचे बोलणे आणि वागणे खूप आदरयुक्त वाटले.",
-          "बाफना फर्निचरमध्ये खूप चांगला अनुभव आला."
-        ],
-        bodies: [
-          "व्यवस्थित वेळ देऊन सगळं समजावून सांगितलं.",
-          "कोणतीही घाई न करता आमच्या गरजेनुसार मार्गदर्शन केले.",
-          "प्रत्येक फर्निचरची सविस्तर माहिती त्यांनी दिली."
-        ],
-        outros: [
-          "एकूण अनुभव खूप चांगला होता.",
-          "अशा उत्तम सेवेसाठी धन्यवाद.",
-          "नक्कीच पुन्हा भेट देऊ."
-        ]
-      },
-      'mr-quality': {
-        intros: [
-          "फर्निचरची क्वालिटी खूप चांगली आहे.",
-          "इथे मिळणारे फर्निचर एकदम दर्जेदार आणि मजबूत आहे.",
-          "फिनिशिंग आणि लाकडाचा दर्जा खरंच खूप उत्तम आहे."
-        ],
-        bodies: [
-          "लाकूड मजबूत आहे आणि फिनिशिंगही छान आहे.",
-          "तयार केलेले काम अतिशय टिकाऊ आणि आकर्षक दिसते.",
-          "साहित्य आणि मजबुती या दोन्ही बाबतीत हे फर्निचर उत्तम आहे."
-        ],
-        outros: [
-          "घेतलेली वस्तू मनापासून आवडली.",
-          "पैशांचे पूर्ण समाधान मिळाले.",
-          "घरासाठी उत्तम पर्याय."
-        ]
-      },
-      'mr-experience': {
-        intros: [
-          "दुकानात चांगली व्हरायटी आहे.",
-          "खरेदी करण्याचा अनुभव खूप छान होता.",
-          "घरगुती फर्निचरसाठी भरपूर पर्याय उपलब्ध आहेत."
-        ],
-        bodies: [
-          "स्टाफने व्यवस्थित मार्गदर्शन केलं आणि निवड करताना खूप मदत झाली.",
-          "आमच्या बजेटमध्ये आणि घराच्या जागेनुसार त्यांनी योग्य पर्याय सुचवले.",
-          "विविध डिझाइन्स बघून निवड करणे सोपे झाले."
-        ],
-        outros: [
-          "चांगला अनुभव आला.",
-          "इतरांनाही नक्की शिफारस करेन.",
-          "धन्यवाद बाफना फर्निचर."
-        ]
-      },
-      'mr-delivery': {
-        intros: [
-          "वेळेवर डिलिव्हरी मिळाली आणि सामान व्यवस्थित पोहोचवलं.",
-          "डिलिव्हरीची सेवा अगदी वेळेत आणि चोख होती.",
-          "सामान सुरक्षितपणे घरी आणून दिले."
-        ],
-        bodies: [
-          "कुठलीही तोडफोड न होता सामान काळजीपूर्वक बसवून दिले.",
-          "डिलिव्हरी टीमने फर्निचर काळजीपूर्वक हाताळले.",
-          "सामानाची काळजी खूप चांगल्या प्रकारे घेतली गेली."
-        ],
-        outros: [
-          "पूर्ण प्रोसेस अगदी व्यवस्थित झाली.",
-          "सेवा समाधानकारक होती.",
-          "खूप छान आणि तत्पर सेवा."
-        ]
-      }
-    };
+  'en-service': {
+    intros: [
+      "Really liked the way they talk and treat customers.",
+      "Uncle and the staff are very humble and down to earth.",
+      "Walked in just to check options and had a great visit.",
+      "Good experience here."
+    ],
+    bodies: [
+      "No rushing at all, showed multiple designs very patiently.",
+      "Explained the wood types and sizes properly without pushing us to buy.",
+      "Listened to what we wanted and suggested what actually fits our space.",
+      "Staff was really helpful throughout."
+    ],
+    outros: [
+      "Worth visiting.",
+      "Definitely happy with the service.",
+      "Rare to find this kind of honest guidance nowadays.",
+      "Will surely recommend to friends & family."
+    ]
+  },
+  'en-quality': {
+    intros: [
+      "Bought furniture from here and the quality is solid.",
+      "Finishing is neat and feels very premium.",
+      "Build quality is super sturdy.",
+      "Got our home furniture from here."
+    ],
+    bodies: [
+      "Wood feels heavy and strong, definitely made to last long.",
+      "Edges, polish and fitting are all done cleanly.",
+      "Looks even better once set up at home.",
+      "Much better finish than what you usually find around."
+    ],
+    outros: [
+      "Total value for money.",
+      "Super happy with the purchase!",
+      "Really satisfied with how it turned out.",
+      "No complaints at all."
+    ]
+  },
+  'en-experience': {
+    intros: [
+      "One of the best and most reliable furniture shops in town.",
+      "Lots of variety to choose from.",
+      "Visited based on local recommendation and wasn't disappointed.",
+      "Great store with good variety."
+    ],
+    bodies: [
+      "Prices are fair and they don't give false promises on delivery.",
+      "Showroom has good options for both modern and traditional setups.",
+      "They help you pick according to your budget.",
+      "Very smooth and straightforward dealing."
+    ],
+    outros: [
+      "Must visit if you're looking for durable furniture.",
+      "Will definitely come back next time.",
+      "10/10 experience.",
+      "Thoroughly satisfied."
+    ]
+  },
+  'en-delivery': {
+    intros: [
+      "Delivery was prompt and smooth.",
+      "Got our order delivered right on the promised day.",
+      "Very hassle-free delivery.",
+      "Delivered on time without any delay."
+    ],
+    bodies: [
+      "They carried and placed everything carefully without any scratches.",
+      "Setup was done quickly by their team on the spot.",
+      "Packing was neat and items reached in 100% good condition.",
+      "Everything was handled carefully."
+    ],
+    outros: [
+      "Appreciate the punctual service!",
+      "Thanks for the smooth dispatch.",
+      "Great coordination by the team."
+    ]
+  },
+  'en-value': {
+    intros: [
+      "Reasonable pricing compared to other places.",
+      "Solid furniture at genuine rates.",
+      "Fair deals without unnecessary bargaining.",
+      "Good quality at budget-friendly rates."
+    ],
+    bodies: [
+      "Didn't try to overcharge, straight and clear pricing.",
+      "For this kind of wood and durability, the price is totally justified.",
+      "Gave us a fair deal for the complete set.",
+      "Good options across all budget ranges."
+    ],
+    outros: [
+      "Full paisa vasool!",
+      "Definitely worth the money.",
+      "Happy with the deal we got."
+    ]
+  },
+
+  // MARATHI (Natural, everyday spoken Marathi)
+  'mr-service': {
+    intros: [
+      "काका आणि स्टाफचा स्वभाव खूप चांगला आहे.",
+      "इथे आल्यावर खूप चांगला अनुभव आला.",
+      "स्टाफ अतिशय मनमिळाऊ आणि मदत करणारा आहे."
+    ],
+    bodies: [
+      "बघायला गेलो तेव्हा खूप शांतपणे सगळं दाखवलं, अजिबात घाई केली नाही.",
+      "लाकडाबद्दल आणि डिझाईनबद्दल अगदी मनापासून समजावून सांगितलं.",
+      "आमच्या गरजेनुसार त्यांनी योग्य तेच सुचवलं."
+    ],
+    outros: [
+      "अशी प्रामाणिक सेवा मिळणं अवघड आहे.",
+      "खूप समाधान वाटलं.",
+      "नक्कीच पुन्हा येऊ!"
+    ]
+  },
+  'mr-quality': {
+    intros: [
+      "फर्निचर एकदम मजबूत आणि टिकाऊ आहे.",
+      "इथून घेतलेल्या सामानाची क्वालिटी भारी आहे.",
+      "फिनिशिंग आणि लाकूड दोन्ही उत्तम आहे."
+    ],
+    bodies: [
+      "पॉलिश आणि फिटिंग खूप व्यवस्थित केली आहे.",
+      "घरी आणून ठेवल्यावर अजूनच उठून दिसतेय.",
+      "लाकडाचा दर्जा खरोखरच दर्जेदार आहे, पोकळ काम नाही."
+    ],
+    outros: [
+      "पैशांचे पूर्ण समाधान (पैसा वसूल).",
+      "वस्तू मनापासून आवडली!",
+      "उत्तम दर्जा."
+    ]
+  },
+  'mr-experience': {
+    intros: [
+      "दुकानात डिझाईन्सचे खूप पर्याय उपलब्ध आहेत.",
+      "फर्निचर खरेदीसाठी खात्रीशीर दुकान.",
+      "खरेदीचा अनुभव खूप छान राहिला."
+    ],
+    bodies: [
+      "बजेटनुसार भरपूर व्हरायटी बघायला मिळाली.",
+      "व्यवहार एकदम स्पष्ट आणि पारदर्शक आहे.",
+      "योग्य सल्ला देऊन निवड करायला खूप मदत केली."
+    ],
+    outros: [
+      "नक्की भेट द्यायला हवी.",
+      "नातेवाईकांना आणि मित्रांना नक्की सुचवेन.",
+      "एक नंबर अनुभव!"
+    ]
+  },
+  'mr-delivery': {
+    intros: [
+      "सांगितलेल्या वेळेत डिलिव्हरी मिळाली.",
+      "डिलिव्हरी एकदम वेळेवर आणि नीट झाली.",
+      "सामान व्यवस्थित पोहोचलं."
+    ],
+    bodies: [
+      "कुठेही ओरखडा न पडता सुरक्षितपणे आणून दिलं.",
+      "घरात व्यवस्थित फिटिंग आणि मांडणी करून दिली.",
+      "गाडीवाल्यांनी आणि कामगारांनी सामान काळजीपूर्वक हाताळलं."
+    ],
+    outros: [
+      "तत्पर सेवेबद्दल धन्यवाद!",
+      "एकदम व्यवस्थित काम.",
+      "खूप छान सेवा."
+    ]
+  }
+}
+;
+
 
     function generateText(cardId) {
       const pool = templates[cardId];
