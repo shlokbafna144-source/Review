@@ -1,678 +1,525 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>The Bafna Furniture — Customer Reviews</title>  <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bafna Furniture — Leave a Review</title>
+  <style>
     :root {
-      --primary: #8c531b;
-      --primary-dark: #6e3e11;
-      --primary-light: #f1e7dc;
-      --bg: #fbf9f5;
-      --card: #ffffff;
-      --text: #2c2523;
-      --muted: #6b635b;
-      --border: #e8e2d8;
-      --success: #287a45;
+      --primary: #1a73e8;
+      --primary-hover: #1557b0;
+      --bg-color: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-main: #202124;
+      --text-muted: #5f6368;
+      --border-color: #dadce0;
+      --tag-bg: #e8f0fe;
+      --tag-text: #1967d2;
+      --star-color: #fbbc04;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      padding: 22px 15px 35px;
-      line-height: 1.5;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 24px 16px;
     }
 
     .container {
       width: 100%;
-      max-width: 580px;
-      margin: auto;
+      max-width: 540px;
     }
 
     .header {
       text-align: center;
-      padding: 8px 5px 22px;
+      margin-bottom: 28px;
     }
 
     .badge {
       display: inline-block;
-      background: var(--primary-light);
-      color: var(--primary-dark);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 5px 13px;
-      border-radius: 50px;
-      margin-bottom: 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: #e9ecef;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
     }
 
     .stars {
-      color: #e69500;
-      font-size: 19px;
-      letter-spacing: 3px;
-      margin-bottom: 5px;
-    }
-
-    h1 {
-      font-size: 27px;
-      line-height: 1.2;
-      font-weight: 800;
-      margin-bottom: 7px;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      font-size: 14px;
-      max-width: 470px;
-      margin: auto;
-    }
-
-    .section-title {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: var(--muted);
-      margin: 23px 0 11px;
-      font-weight: 800;
-    }
-
-    .review-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      padding: 16px;
-      margin-bottom: 11px;
-      cursor: pointer;
-      position: relative;
-      transition: 0.18s ease;
-      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.025);
-    }
-
-    .review-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(140, 83, 27, 0.08);
-    }
-
-    .review-card.selected {
-      border-color: var(--success);
-      background: #f7fcf8;
-    }
-
-    .review-tag {
-      display: block;
-      color: var(--primary);
-      font-size: 12px;
-      font-weight: 750;
+      color: var(--star-color);
+      font-size: 1.2rem;
+      letter-spacing: 2px;
       margin-bottom: 6px;
     }
 
+    .header h1 {
+      font-size: 1.6rem;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 28px 0 14px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+    }
+
+    .review-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 3px rgba(60,64,67,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card-tag {
+      align-self: flex-start;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
     .review-text {
-      color: var(--text);
-      font-size: 14.5px;
+      font-size: 0.95rem;
       line-height: 1.5;
+      color: #3c4043;
+      transition: opacity 0.15s ease;
+      min-height: 50px;
     }
 
-    .tap-hint {
+    .card-actions {
       display: flex;
-      align-items: center;
-      gap: 5px;
-      margin-top: 11px;
-      color: var(--muted);
-      font-size: 11.5px;
-      font-weight: 650;
+      gap: 8px;
+      margin-top: 6px;
     }
 
-    .review-card.selected .tap-hint {
-      color: var(--success);
-    }
-
-    /* NEXT BUTTON */
-
-    .next-area {
-      display: none;
-      margin-top: 14px;
-      animation: slideDown 0.25s ease;
-    }
-
-    .review-card.selected .next-area {
-      display: block;
-    }
-
-    .next-button {
-      display: flex;
+    .btn {
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      gap: 8px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      border: none;
-      border-radius: 10px;
-      padding: 13px 16px;
-      font-size: 14px;
-      font-weight: 750;
-      cursor: pointer;
-      transition: 0.15s ease;
+      transition: background 0.2s ease, transform 0.1s ease;
     }
 
-    .next-button:hover {
-      background: var(--primary-dark);
-    }
-
-    .next-button:active {
+    .btn:active {
       transform: scale(0.98);
     }
 
-    .next-info {
-      text-align: center;
-      color: var(--muted);
-      font-size: 11px;
-      margin-top: 7px;
+    .btn-shuffle {
+      background: #f1f3f4;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      flex: 1;
     }
 
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-5px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .btn-shuffle:hover {
+      background: #e8eaed;
     }
 
-    .footer {
-      text-align: center;
-      margin-top: 23px;
-      padding: 15px;
-      background: var(--primary-light);
-      border-radius: 12px;
-      color: var(--primary-dark);
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
-    .footer strong {
-      font-weight: 800;
-    }
-
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 22px;
-      transform: translateX(-50%) translateY(90px);
-      background: var(--text);
+    .btn-copy {
+      background: var(--primary);
       color: white;
-      padding: 11px 18px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 650;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.28s ease;
-      box-shadow: 0 7px 22px rgba(0,0,0,0.22);
+      flex: 2;
+    }
+
+    .btn-copy:hover {
+      background: var(--primary-hover);
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 32px;
+      padding: 16px;
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px dashed var(--border-color);
+      line-height: 1.5;
+    }
+
+    /* Floating Copied Toast */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #202124;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 12px 16px;
+      position: fixed;
       z-index: 1000;
-      white-space: nowrap;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
 
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.3s, fadeout 0.3s 1.7s;
     }
 
-    @media (max-width: 420px) {
-      body {
-        padding: 18px 12px 30px;
-      }
-
-      h1 {
-        font-size: 25px;
-      }
-
-      .review-card {
-        padding: 15px;
-      }
-
-      .review-text {
-        font-size: 14px;
-      }
+    @keyframes fadein {
+      from { bottom: 10px; opacity: 0; }
+      to { bottom: 30px; opacity: 1; }
     }
-  </style></head><body>  <div class="container"><!-- HEADER -->
 
-<div class="header">
+    @keyframes fadeout {
+      from { bottom: 30px; opacity: 1; }
+      to { bottom: 10px; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
 
-  <div class="badge">Serving Customers Since 1985</div>
-
-  <div class="stars">★★★★★</div>
-
-  <h1>The Bafna Furniture</h1>
-
-  <p class="subtitle">
-    Choose a review that best matches your experience.
-    Your feedback means a lot to us.
-  </p>
-
-</div>
-
-
-<!-- ENGLISH -->
-
-<div class="section-title">English — Review Ideas</div>
-
-
-<div class="review-card" onclick="selectReview(this)">
-
-  <span class="review-tag">Friendly Service</span>
-
-  <p class="review-text">
-    Had a really good experience here. The owner and staff were polite
-    and explained everything properly without rushing us.
-  </p>
-
-  <div class="tap-hint">📋 Tap to select & copy</div>
-
-  <div class="next-area">
-
-    <a
-      class="next-button"
-      href="https://g.page/r/CXtSAphdamhgEBM/review"
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick="event.stopPropagation()"
-    >
-      Next → Write on Google
-    </a>
-
-    <div class="next-info">
-      Your selected text has been copied
+  <div class="container">
+    <div class="header">
+      <div class="badge">Serving Customers Since 1985</div>
+      <div class="stars">★★★★★</div>
+      <h1>The Bafna Furniture</h1>
+      <p>Choose a review that matches your experience. Tap shuffle to generate different wording, copy it, and share it on Google.</p>
     </div>
 
-  </div>
+    <div class="section-title">English — Review Ideas</div>
 
-</div>
-
-
-<div class="review-card" onclick="selectReview(this)">
-
-  <span class="review-tag">Furniture Quality</span>
-
-  <p class="review-text">
-    Really liked the quality of the furniture. The build feels strong
-    and the finishing is also very good. Overall, happy with the purchase.
-  </p>
-
-  <div class="tap-hint">📋 Tap to select & copy</div>
-
-  <div class="next-area">
-
-    <a
-      class="next-button"
-      href="https://g.page/r/CXtSAphdamhgEBM/review"
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick="event.stopPropagation()"
-    >
-      Next → Write on Google
-    </a>
-
-    <div class="next-info">
-      Your selected text has been copied
+    <div class="review-card">
+      <span class="card-tag">Friendly Service</span>
+      <p class="review-text" id="review-en-service"></p>
+      <div class="card-actions">
+        <button type="button" class="btn btn-shuffle" onclick="shuffleCard('en-service')">✨ Shuffle</button>
+        <button type="button" class="btn btn-copy" onclick="copyAndRedirect('en-service')">📋 Copy & Open Google</button>
+      </div>
     </div>
 
-  </div>
-
-</div>
-
-
-<div class="review-card" onclick="selectReview(this)">
-
-  <span class="review-tag">Good Experience</span>
-
-  <p class="review-text">
-    Good collection and helpful staff. They gave us enough time to look
-    around and helped us choose something that suited our home.
-  </p>
-
-  <div class="tap-hint">📋 Tap to select & copy</div>
-
-  <div class="next-area">
-
-    <a
-      class="next-button"
-      href="https://g.page/r/CXtSAphdamhgEBM/review"
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick="event.stopPropagation()"
-    >
-      Next → Write on Google
-    </a>
-
-    <div class="next-info">
-      Your selected text has been copied
+    <div class="review-card">
+      <span class="card-tag">Furniture Quality</span>
+      <p class="review-text" id="review-en-quality"></p>
+      <div class="card-actions">
+        <button type="button" class="btn btn-shuffle" onclick="shuffleCard('en-quality')">✨ Shuffle</button>
+        <button type="button" class="btn btn-copy" onclick="copyAndRedirect('en-quality')">📋 Copy & Open Google</button>
+      </div>
     </div>
 
-  </div>
-
-</div>
-
-
-<div class="review-card" onclick="selectReview(this)">
-
-  <span class="review-tag">Delivery</span>
-
-  <p class="review-text">
-    Delivery was on time and the furniture was handled properly.
-    Overall the whole process was smooth and hassle-free.
-  </p>
-
-  <div class="tap-hint">📋 Tap to select & copy</div>
-
-  <div class="next-area">
-
-    <a
-      class="next-button"
-      href="https://g.page/r/CXtSAphdamhgEBM/review"
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick="event.stopPropagation()"
-    >
-      Next → Write on Google
-    </a>
-
-    <div class="next-info">
-      Your selected text has been copied
+    <div class="review-card">
+      <span class="card-tag">Good Experience</span>
+      <p class="review-text" id="review-en-experience"></p>
+      <div class="card-actions">
+        <button type="button" class="btn btn-shuffle" onclick="shuffleCard('en-experience')">✨ Shuffle</button>
+        <button type="button" class="btn btn-copy" onclick="copyAndRedirect('en-experience')">📋 Copy & Open Google</button>
+      </div>
     </div>
 
-  </div>
-
-</div>
-
-
-<div class="review-card" onclick="selectReview(this)">
-
-  <span class="review-tag">Value for Money</span>
-
-  <p class="review-text">
-    Good quality furniture at a reasonable price. The staff was also
-    helpful throughout the purchase. Would definitely visit again.
-  </p>
-
-  <div class="tap-hint">📋 Tap to select & copy</div>
-
-  <div class="next-area">
-
-    <a
-      class="next-button"
-      href="https://g.page/r/CXtSAphdamhgEBM/review"
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick="event.stopPropagation()"
-    >
-      Next → Write on Google
-    </a>
-
-    <div class="next-info">
-      Your selected text has been copied
+    <div class="review-card">
+      <span class="card-tag">Delivery</span>
+      <p class="review-text" id="review-en-delivery"></p>
+      <div class="card-actions">
+        <button type="button" class="btn btn-shuffle" onclick="shuffleCard('en-delivery')">✨ Shuffle</button>
+        <button type="button" class="btn btn-copy" onclick="copyAndRedirect('en-delivery')">📋 Copy & Open Google</button>
+      </div>
     </div>
 
-  </div>
-
-</div>
-
-
-<!-- MARATHI -->
-
-<div class="section-title">मराठी — पर्याय</div>
-
-
-<div class="review-card" onclick="selectReview(this)">
-
-  <span class="review-tag">नम्र सेवा</span>
-
-  <p class="review-text">
-    मालक आणि स्टाफ खूप नम्र आहेत. व्यवस्थित वेळ देऊन सगळं समजावून
-    सांगितलं. एकूण अनुभव खूप चांगला होता.
-  </p>
-
-  <div class="tap-hint">📋 कॉपी करण्यासाठी टॅप करा</div>
-
-  <div class="next-area">
-
-    <a
-      class="next-button"
-      href="https://g.page/r/CXtSAphdamhgEBM/review"
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick="event.stopPropagation()"
-    >
-      पुढे → Google वर Review द्या
-    </a>
-
-    <div class="next-info">
-      तुमचा निवडलेला मजकूर कॉपी झाला आहे
+    <div class="review-card">
+      <span class="card-tag">Value for Money</span>
+      <p class="review-text" id="review-en-value"></p>
+      <div class="card-actions">
+        <button type="button" class="btn btn-shuffle" onclick="shuffleCard('en-value')">✨ Shuffle</button>
+        <button type="button" class="btn btn-copy" onclick="copyAndRedirect('en-value')">📋 Copy & Open Google</button>
+      </div>
     </div>
 
-  </div>
+    <div class="section-title">मराठी — पर्याय</div>
 
-</div>
-
-
-<div class="review-card" onclick="selectReview(this)">
-
-  <span class="review-tag">फर्निचरची क्वालिटी</span>
-
-  <p class="review-text">
-    फर्निचरची क्वालिटी खूप चांगली आहे. लाकूड मजबूत आहे आणि फिनिशिंगही
-    छान आहे. घेतलेली वस्तू आवडली.
-  </p>
-
-  <div class="tap-hint">📋 कॉपी करण्यासाठी टॅप करा</div>
-
-  <div class="next-area">
-
-    <a
-      class="next-button"
-      href="https://g.page/r/CXtSAphdamhgEBM/review"
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick="event.stopPropagation()"
-    >
-      पुढे → Google वर Review द्या
-    </a>
-
-    <div class="next-info">
-      तुमचा निवडलेला मजकूर कॉपी झाला आहे
+    <div class="review-card">
+      <span class="card-tag">नम्र सेवा</span>
+      <p class="review-text" id="review-mr-service"></p>
+      <div class="card-actions">
+        <button type="button" class="btn btn-shuffle" onclick="shuffleCard('mr-service')">✨ बदलून पहा</button>
+        <button type="button" class="btn btn-copy" onclick="copyAndRedirect('mr-service')">📋 कॉपी करा & पुढे जा</button>
+      </div>
     </div>
 
-  </div>
-
-</div>
-
-
-<div class="review-card" onclick="selectReview(this)">
-
-  <span class="review-tag">चांगला अनुभव</span>
-
-  <p class="review-text">
-    दुकानात चांगली व्हरायटी आहे. स्टाफने व्यवस्थित मार्गदर्शन केलं आणि
-    निवड करताना खूप मदत झाली. चांगला अनुभव.
-  </p>
-
-  <div class="tap-hint">📋 कॉपी करण्यासाठी टॅप करा</div>
-
-  <div class="next-area">
-
-    <a
-      class="next-button"
-      href="https://g.page/r/CXtSAphdamhgEBM/review"
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick="event.stopPropagation()"
-    >
-      पुढे → Google वर Review द्या
-    </a>
-
-    <div class="next-info">
-      तुमचा निवडलेला मजकूर कॉपी झाला आहे
+    <div class="review-card">
+      <span class="card-tag">फर्निचरची क्वालिटी</span>
+      <p class="review-text" id="review-mr-quality"></p>
+      <div class="card-actions">
+        <button type="button" class="btn btn-shuffle" onclick="shuffleCard('mr-quality')">✨ बदलून पहा</button>
+        <button type="button" class="btn btn-copy" onclick="copyAndRedirect('mr-quality')">📋 कॉपी करा & पुढे जा</button>
+      </div>
     </div>
 
-  </div>
-
-</div>
-
-
-<div class="review-card" onclick="selectReview(this)">
-
-  <span class="review-tag">डिलिव्हरी</span>
-
-  <p class="review-text">
-    वेळेवर डिलिव्हरी मिळाली आणि सामान व्यवस्थित पोहोचवलं.
-    पूर्ण प्रोसेस अगदी व्यवस्थित झाली.
-  </p>
-
-  <div class="tap-hint">📋 कॉपी करण्यासाठी टॅप करा</div>
-
-  <div class="next-area">
-
-    <a
-      class="next-button"
-      href="https://g.page/r/CXtSAphdamhgEBM/review"
-      target="_blank"
-      rel="noopener noreferrer"
-      onclick="event.stopPropagation()"
-    >
-      पुढे → Google वर Review द्या
-    </a>
-
-    <div class="next-info">
-      तुमचा निवडलेला मजकूर कॉपी झाला आहे
+    <div class="review-card">
+      <span class="card-tag">चांगला अनुभव</span>
+      <p class="review-text" id="review-mr-experience"></p>
+      <div class="card-actions">
+        <button type="button" class="btn btn-shuffle" onclick="shuffleCard('mr-experience')">✨ बदलून पहा</button>
+        <button type="button" class="btn btn-copy" onclick="copyAndRedirect('mr-experience')">📋 कॉपी करा & पुढे जा</button>
+      </div>
     </div>
 
+    <div class="review-card">
+      <span class="card-tag">डिलिव्हरी</span>
+      <p class="review-text" id="review-mr-delivery"></p>
+      <div class="card-actions">
+        <button type="button" class="btn btn-shuffle" onclick="shuffleCard('mr-delivery')">✨ बदलून पहा</button>
+        <button type="button" class="btn btn-copy" onclick="copyAndRedirect('mr-delivery')">📋 कॉपी करा & पुढे जा</button>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <strong>Your genuine experience matters to us.</strong><br>
+      These are only suggestions. Feel free to edit the text on Google to reflect your true experience.
+    </div>
   </div>
 
-</div>
+  <div id="toast">✓ Copied! Opening Google Reviews...</div>
 
+  <script>
+    const GOOGLE_REVIEW_URL = "https://g.page/r/CXtSAphdamhgEBM/review";
 
-<!-- FOOTER -->
-
-<div class="footer">
-
-  <strong>Your genuine experience matters to us.</strong><br>
-
-  These are only suggestions. Feel free to edit the text
-  so that your review reflects your actual experience.
-
-</div>
-
-  </div>  <div id="toast" class="toast">
-    ✓ Copied! Tap "Next" to continue
-  </div>  <script>
-
-    function selectReview(card) {
-
-      const text = card.querySelector(".review-text").innerText;
-
-      /* Remove selection from all other cards */
-
-      document.querySelectorAll(".review-card").forEach(function(item) {
-        item.classList.remove("selected");
-
-        const hint = item.querySelector(".tap-hint");
-
-        if (hint) {
-
-          if (hint.innerText.includes("कॉपी")) {
-            hint.innerText = "📋 कॉपी करण्यासाठी टॅप करा";
-          } else {
-            hint.innerText = "📋 Tap to select & copy";
-          }
-
-        }
-
-      });
-
-
-      /* Select this card */
-
-      card.classList.add("selected");
-
-
-      const hint = card.querySelector(".tap-hint");
-
-
-      /* Change selected message */
-
-      if (hint.innerText.includes("कॉपी")) {
-        hint.innerText = "✓ निवडले — मजकूर कॉपी झाला";
-      } else {
-        hint.innerText = "✓ Selected — text copied";
+    // Pools of variations to create distinct sentence structures
+    const templates = {
+      'en-service': {
+        intros: [
+          "Had a really good experience here.",
+          "Visited The Bafna Furniture recently and was impressed.",
+          "Great customer support and hospitality."
+        ],
+        bodies: [
+          "The owner and staff were polite and explained everything properly without rushing us.",
+          "The team is courteous, patient, and helped us compare the best options.",
+          "Everyone was welcoming and took their time to understand our exact requirements."
+        ],
+        outros: [
+          "Appreciate the honest service!",
+          "Very smooth experience overall.",
+          "Will definitely recommend them."
+        ]
+      },
+      'en-quality': {
+        intros: [
+          "Really liked the quality of the furniture.",
+          "The build and finishing are top-notch.",
+          "Impressed by the craftsmanship of the items."
+        ],
+        bodies: [
+          "The build feels strong and the polish is very clean.",
+          "Solid wood material and very sturdy design for our home.",
+          "The attention to detail and material durability is commendable."
+        ],
+        outros: [
+          "Overall, very happy with the purchase.",
+          "Totally worth the investment.",
+          "Great addition to our room."
+        ]
+      },
+      'en-experience': {
+        intros: [
+          "Good collection and helpful staff.",
+          "Had a very pleasant shopping experience here.",
+          "Great store with plenty of design varieties."
+        ],
+        bodies: [
+          "They gave us enough time to look around and helped us choose something suited for our home.",
+          "The staff helped us pick the right setup without pushing anything unnecessary.",
+          "They have a wide range of options to match modern interiors."
+        ],
+        outros: [
+          "Definitely coming back for future furniture needs.",
+          "Thank you for the wonderful service.",
+          "Highly recommended furniture store!"
+        ]
+      },
+      'en-delivery': {
+        intros: [
+          "Delivery was on time and prompt.",
+          "Very pleased with their delivery service.",
+          "Timely delivery and neat packaging."
+        ],
+        bodies: [
+          "The furniture was handled properly and assembled with care.",
+          "No scratches or issues, the logistics team was very cautious.",
+          "Everything arrived in perfect condition right on schedule."
+        ],
+        outros: [
+          "Overall the whole process was smooth and hassle-free.",
+          "Extremely reliable delivery team.",
+          "Great end-to-end service."
+        ]
+      },
+      'en-value': {
+        intros: [
+          "Good quality furniture at a reasonable price.",
+          "Affordable prices without compromising on quality.",
+          "True value for money."
+        ],
+        bodies: [
+          "The staff was helpful throughout the purchase and gave us a genuine deal.",
+          "Rates are competitive compared to the market for solid craftsmanship.",
+          "Completely justified pricing for the durability provided."
+        ],
+        outros: [
+          "Would definitely visit again.",
+          "A trustworthy shop for budget and premium buyers alike.",
+          "Great deal all around."
+        ]
+      },
+      // Marathi Pools
+      'mr-service': {
+        intros: [
+          "मालक आणि स्टाफ खूप नम्र आहेत.",
+          "येथील सर्व कर्मचाऱ्यांचे बोलणे आणि वागणे खूप आदरयुक्त वाटले.",
+          "बाफना फर्निचरमध्ये खूप चांगला अनुभव आला."
+        ],
+        bodies: [
+          "व्यवस्थित वेळ देऊन सगळं समजावून सांगितलं.",
+          "कोणतीही घाई न करता आमच्या गरजेनुसार मार्गदर्शन केले.",
+          "प्रत्येक फर्निचरची सविस्तर माहिती त्यांनी दिली."
+        ],
+        outros: [
+          "एकूण अनुभव खूप चांगला होता.",
+          "अशा उत्तम सेवेसाठी धन्यवाद.",
+          "नक्कीच पुन्हा भेट देऊ."
+        ]
+      },
+      'mr-quality': {
+        intros: [
+          "फर्निचरची क्वालिटी खूप चांगली आहे.",
+          "इथे मिळणारे फर्निचर एकदम दर्जेदार आणि मजबूत आहे.",
+          "फिनिशिंग आणि लाकडाचा दर्जा खरंच खूप उत्तम आहे."
+        ],
+        bodies: [
+          "लाकूड मजबूत आहे आणि फिनिशिंगही छान आहे.",
+          "तयार केलेले काम अतिशय टिकाऊ आणि आकर्षक दिसते.",
+          "साहित्य आणि मजबुती या दोन्ही बाबतीत हे फर्निचर उत्तम आहे."
+        ],
+        outros: [
+          "घेतलेली वस्तू मनापासून आवडली.",
+          "पैशांचे पूर्ण समाधान मिळाले.",
+          "घरासाठी उत्तम पर्याय."
+        ]
+      },
+      'mr-experience': {
+        intros: [
+          "दुकानात चांगली व्हरायटी आहे.",
+          "खरेदी करण्याचा अनुभव खूप छान होता.",
+          "घरगुती फर्निचरसाठी भरपूर पर्याय उपलब्ध आहेत."
+        ],
+        bodies: [
+          "स्टाफने व्यवस्थित मार्गदर्शन केलं आणि निवड करताना खूप मदत झाली.",
+          "आमच्या बजेटमध्ये आणि घराच्या जागेनुसार त्यांनी योग्य पर्याय सुचवले.",
+          "विविध डिझाइन्स बघून निवड करणे सोपे झाले."
+        ],
+        outros: [
+          "चांगला अनुभव आला.",
+          "इतरांनाही नक्की शिफारस करेन.",
+          "धन्यवाद बाफना फर्निचर."
+        ]
+      },
+      'mr-delivery': {
+        intros: [
+          "वेळेवर डिलिव्हरी मिळाली आणि सामान व्यवस्थित पोहोचवलं.",
+          "डिलिव्हरीची सेवा अगदी वेळेत आणि चोख होती.",
+          "सामान सुरक्षितपणे घरी आणून दिले."
+        ],
+        bodies: [
+          "कुठलीही तोडफोड न होता सामान काळजीपूर्वक बसवून दिले.",
+          "डिलिव्हरी टीमने फर्निचर काळजीपूर्वक हाताळले.",
+          "सामानाची काळजी खूप चांगल्या प्रकारे घेतली गेली."
+        ],
+        outros: [
+          "पूर्ण प्रोसेस अगदी व्यवस्थित झाली.",
+          "सेवा समाधानकारक होती.",
+          "खूप छान आणि तत्पर सेवा."
+        ]
       }
+    };
 
+    function generateText(cardId) {
+      const pool = templates[cardId];
+      if (!pool) return "";
+      const intro = pool.intros[Math.floor(Math.random() * pool.intros.length)];
+      const body = pool.bodies[Math.floor(Math.random() * pool.bodies.length)];
+      const outro = pool.outros[Math.floor(Math.random() * pool.outros.length)];
+      return `${intro} ${body} ${outro}`;
+    }
 
-      /* Copy text */
+    function shuffleCard(cardId) {
+      const el = document.getElementById(`review-${cardId}`);
+      if (!el) return;
+      el.style.opacity = '0.3';
+      setTimeout(() => {
+        el.innerText = generateText(cardId);
+        el.style.opacity = '1';
+      }, 120);
+    }
 
+    function copyAndRedirect(cardId) {
+      const text = document.getElementById(`review-${cardId}`).innerText;
+      
+      // Copy to clipboard
       if (navigator.clipboard && window.isSecureContext) {
-
-        navigator.clipboard.writeText(text)
-          .then(showToast)
-          .catch(function() {
-            fallbackCopy(text);
-          });
-
+        navigator.clipboard.writeText(text);
       } else {
-
-        fallbackCopy(text);
-
-      }
-
-    }
-
-
-    function fallbackCopy(text) {
-
-      const textarea = document.createElement("textarea");
-
-      textarea.value = text;
-
-      textarea.style.position = "fixed";
-      textarea.style.left = "-9999px";
-
-      document.body.appendChild(textarea);
-
-      textarea.focus();
-      textarea.select();
-
-      try {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
         document.execCommand("copy");
-        showToast();
-      } catch (error) {
-        alert("Please copy the review manually.");
+        document.body.removeChild(textarea);
       }
 
-      document.body.removeChild(textarea);
-
-    }
-
-
-    function showToast() {
-
+      // Show toast alert
       const toast = document.getElementById("toast");
+      toast.className = "show";
+      setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2000);
 
-      toast.classList.add("show");
-
-      setTimeout(function() {
-        toast.classList.remove("show");
-      }, 2500);
-
+      // Open Google Review
+      setTimeout(() => {
+        window.open(GOOGLE_REVIEW_URL, "_blank");
+      }, 600);
     }
 
-  </script></body>
+    // Populate initial text on page load
+    window.addEventListener("DOMContentLoaded", () => {
+      Object.keys(templates).forEach(cardId => {
+        const el = document.getElementById(`review-${cardId}`);
+        if (el) el.innerText = generateText(cardId);
+      });
+    });
+  </script>
+</body>
 </html>
