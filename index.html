@@ -66,6 +66,8 @@
       padding: 4px 12px;
       border-radius: 999px;
       margin-bottom: 12px;
+      cursor: pointer;
+      user-select: none;
     }
 
     .header-card h1 {
@@ -180,9 +182,9 @@
 
     .review-quote {
       font-size: 0.94rem;
-      line-height: 1.55;
+      line-height: 1.5;
       color: #292524;
-      min-height: 52px;
+      min-height: 44px;
       margin-bottom: 16px;
       transition: opacity 0.15s ease;
     }
@@ -276,10 +278,10 @@
   <div class="app-container">
     
     <div class="header-card">
-      <div class="legacy-tag">Serving Customers Since 1985</div>
+      <div class="legacy-tag" title="Tap 5 times for Admin">Serving Customers Since 1985</div>
       <div class="rating-row">★★★★★</div>
       <h1>The Bafna Furniture</h1>
-      <p>Select an experience below. Tap copy to paste directly on Google Reviews.</p>
+      <p>Tap a review below to copy it and post directly on Google.</p>
     </div>
 
     <div class="lang-tabs">
@@ -287,7 +289,6 @@
       <button class="tab-btn" onclick="switchLanguage('mr', this)">मराठी (Marathi)</button>
     </div>
 
-    <!-- ENGLISH GROUP -->
     <div class="view-group active" id="group-en">
       <div class="review-card">
         <div class="card-top">
@@ -345,7 +346,6 @@
       </div>
     </div>
 
-    <!-- MARATHI GROUP -->
     <div class="view-group" id="group-mr">
       <div class="review-card">
         <div class="card-top">
@@ -392,17 +392,16 @@
       </div>
     </div>
 
-    <!-- DIRECT SELF REVIEW REDIRECT CARD -->
     <div class="self-review-card">
       <h3 id="self-title">Want to write your own review?</h3>
-      <p id="self-desc">Have a specific experience to share? Tap below to open Google Reviews directly.</p>
+      <p id="self-desc">Have a specific purchase to mention? Tap below to open Google directly.</p>
       <button class="btn-direct-redirect" onclick="openDirectGoogle()">
         <span id="self-btn-text">✍️ Write Directly on Google</span>
       </button>
     </div>
 
     <p class="disclaimer">
-      Your genuine feedback helps us serve you better. Thank you for supporting our local business!
+      Your genuine feedback helps our local business grow. Thank you!
     </p>
 
   </div>
@@ -410,492 +409,492 @@
   <script>
     const GOOGLE_REVIEW_URL = "https://g.page/r/CXtSAphdamhgEBM/review";
 
-    // 15 x 15 x 15 Database (3,375 unique combinations per card)
-    const dynamicMatrix = {
+    // Crisp, short, natural 15x15x15 fragments (Zero "uncle" mentions, genuine human length)
+    const humanMatrix = {
       'en-service': {
         openings: [
-          "Had a really good experience here.",
-          "Visited the showroom recently.",
-          "Uncle and the staff are very humble and down to earth.",
-          "Walked in just to check options and had a great visit.",
-          "The customer service here is honestly top-notch.",
-          "Really liked the way they talk and treat customers.",
-          "Super polite owners and cooperative staff.",
-          "Great hospitality and genuine customer care.",
-          "Shopping for furniture here was completely stress-free.",
-          "Very welcoming atmosphere as soon as you enter the store.",
-          "Had a wonderful interaction with the sales team.",
-          "One of the friendliest furniture showrooms I have visited.",
-          "The owners take personal interest in attending customers.",
-          "Pleasantly surprised by how patient the staff was.",
-          "Reliable showroom with very well-mannered people."
+          "Staff is very polite.",
+          "Great customer service here.",
+          "Really liked the service.",
+          "Very humble and polite staff.",
+          "Good experience with the team.",
+          "Staff is helpful and patient.",
+          "Nice and friendly environment.",
+          "Customer support was very good.",
+          "Very smooth experience at store.",
+          "Pleasant visit to the showroom.",
+          "Staff attended to us nicely.",
+          "Super cooperative staff.",
+          "Good hospitality and service.",
+          "Welcoming and polite staff.",
+          "Had a comfortable visit today."
         ],
         vocabs: [
-          "They showed all the designs patiently without rushing us at all.",
-          "They explained the wood types and maintenance very clearly.",
-          "They helped us understand which dimensions suit our living room best.",
-          "No pushy sales talk or pressure to buy expensive stuff.",
-          "They listened carefully to what our budget and room requirements were.",
-          "The staff spent genuine time showing us multiple fabric and wood choices.",
-          "They gave us honest guidance on durability instead of just trying to sell.",
-          "Everything was explained in detail from polish options to timber quality.",
-          "They didn't mind showing several models until we were fully satisfied.",
-          "The staff was very attentive throughout our visit.",
-          "They made custom sizing suggestions that helped us save floor space.",
-          "The guidance given by Bafna uncle was totally honest and clear.",
-          "They guided us like family with no unnecessary sugarcoating.",
-          "They answered every question about wood strength and warranty patiently.",
-          "Every staff member was courteous and eager to assist us."
+          "They showed options without rushing.",
+          "Explained wood types very nicely.",
+          "Helped us pick the right size.",
+          "No pushy sales talk at all.",
+          "Gave honest advice on durability.",
+          "Understood our budget properly.",
+          "Guided us through all designs calmly.",
+          "Answered all our questions patiently.",
+          "Took time to explain fittings.",
+          "Suggested models that fit our room.",
+          "Very patient with showing catalogs.",
+          "Listened to our needs carefully.",
+          "Helped us compare designs easily.",
+          "Guided us like trusted people.",
+          "Gave very genuine recommendations."
         ],
         ends: [
-          "Definitely coming back again.",
+          "Will surely visit again.",
           "Highly recommend this shop!",
-          "Very happy with how they treated us.",
-          "Rare to find this kind of honest service nowadays.",
-          "Thoroughly satisfied with the whole experience.",
-          "Will surely recommend them to friends and relatives.",
-          "A trustworthy place for home purchases.",
-          "Appreciate the polite attitude!",
-          "Glad we chose this shop.",
-          "Full satisfaction from start to finish.",
-          "Great experience overall.",
-          "10/10 for customer support.",
-          "Keep up the good work!",
-          "Very pleasant shopping trip.",
-          "Deserves a 5-star rating for hospitality alone."
+          "Very satisfied with service.",
+          "Appreciate the honest guidance.",
+          "Great people to deal with.",
+          "Full 5 stars for service.",
+          "Will recommend to family.",
+          "Happy with our visit.",
+          "Keep it up!",
+          "Rare to find such humble staff.",
+          "Very happy customer.",
+          "Definitely coming back.",
+          "Smooth dealing overall.",
+          "Worth visiting for sure.",
+          "Thank you for the help!"
         ]
       },
 
       'en-quality': {
         openings: [
-          "Really liked the quality of the furniture.",
-          "Got our home furniture from here and the build is solid.",
-          "Bought a bed and wardrobe from here recently.",
-          "The build quality here is genuinely commendable.",
-          "Super happy with the materials and finishing.",
-          "Purchased a wooden dining set a few weeks back.",
-          "The craftsmanship of the pieces is very impressive.",
-          "Heavy wood and great finishing all around.",
-          "Their furniture build is definitely built to last.",
-          "We ordered custom bedroom furniture from here.",
-          "The durability of their wooden items is top-notch.",
-          "Great selection of sturdy and well-crafted furniture.",
-          "Much better finishing than what we saw in other stores.",
-          "The weight and strength of the timber speaks for itself.",
-          "Solid purchase for our newly renovated home."
+          "Solid furniture quality.",
+          "Bought a bed from here.",
+          "Really liked the wood build.",
+          "Got home furniture recently.",
+          "Super happy with the build.",
+          "Quality is very sturdy.",
+          "Bought a wardrobe and table.",
+          "Finishing looks very neat.",
+          "Furniture feels heavy and strong.",
+          "Very impressed with the finish.",
+          "Sturdy and well-built furniture.",
+          "Quality is much better than online.",
+          "Purchased a sofa set here.",
+          "Good heavy wood material used.",
+          "Neat finish and strong joints."
         ],
         vocabs: [
-          "The wood feels heavy and strong, definitely not cheap lightweight boards.",
-          "The edges, polish, and fittings are all done very neatly.",
-          "It looks even better once placed in our room.",
-          "The joinery and stability of the frame feel extremely reliable.",
-          "The polish has a rich, smooth finish with zero rough spots.",
-          "You can clearly feel the solid timber durability compared to online brands.",
-          "Everything from the hinges to the handle fittings is premium quality.",
-          "The detailing on the wood carving is clean and durable.",
-          "Sturdy construction that will easily last for decades.",
-          "No wobbling or creaking, the fitting was done with precision.",
-          "The wood grain and finish look very elegant in natural light.",
-          "Top-grade materials used throughout without cutting corners.",
-          "The finish matched our interior decor requirements perfectly.",
-          "Heavy duty woodwork that gives great confidence in everyday use.",
-          "High quality hardware and solid wood backing provided."
+          "Wood is strong and durable.",
+          "Polish and edges are clean.",
+          "Looks very neat in our hall.",
+          "Fittings are tight and solid.",
+          "Not lightweight cheap material.",
+          "Proper solid timber used.",
+          "Detaiing is done with care.",
+          "Build feels long-lasting.",
+          "Everyone at home liked it.",
+          "Much better quality than expected.",
+          "Very solid frame and polish.",
+          "Clean work with no rough spots.",
+          "Sturdy fitting done properly.",
+          "Hardware used is top quality.",
+          "Feels durable for daily use."
         ],
         ends: [
-          "Totally worth the money!",
-          "Extremely satisfied with the purchase.",
-          "No complaints at all regarding the finish.",
-          "Looks very premium in our home.",
-          "A solid long-term investment for the house.",
-          "Worth every rupee spent.",
-          "Couldn't have asked for better quality.",
-          "Exceeded our expectations in every way.",
-          "Definitely made to last long.",
-          "Total value for money!",
-          "Proud to have this piece in our hall.",
-          "Super happy with how it turned out.",
-          "Solid craftsmanship all around.",
-          "Best furniture purchase we made this year.",
-          "Full marks for durability and aesthetic."
+          "Total value for money.",
+          "Very satisfied with purchase.",
+          "Worth every rupee.",
+          "Solid purchase all around.",
+          "Looks premium at home.",
+          "Full paisa vasool!",
+          "Definitely built to last.",
+          "Happy with the purchase.",
+          "No complaints at all.",
+          "Great addition to our room.",
+          "Glad we bought from here.",
+          "Top quality woodwork.",
+          "100% satisfied.",
+          "Will last for years.",
+          "Super happy with it!"
         ]
       },
 
       'en-experience': {
         openings: [
-          "One of the oldest and most trusted furniture shops in town.",
-          "Good collection and very helpful people throughout.",
-          "Visited based on local recommendation and wasn't disappointed.",
-          "Smooth buying experience from start to finish.",
-          "Lots of variety to choose from for every room.",
-          "Best place in town if you're looking for durable furniture.",
-          "Had a seamless shopping journey with them.",
-          "Great showroom with plenty of design options.",
-          "A reliable local store that values customer relationships.",
-          "We have been buying furniture from here for years.",
-          "Very satisfied with our visit to The Bafna Furniture.",
-          "Direct, honest, and straightforward shop to deal with.",
-          "A genuine establishment with traditional values.",
-          "The store has a great layout showcasing different home styles.",
-          "A hassle-free furniture buying experience overall."
+          "Reliable local furniture shop.",
+          "Good collection in store.",
+          "One of the trusted shops around.",
+          "Smooth shopping from start.",
+          "Lots of variety to choose from.",
+          "Visited on friend's recommendation.",
+          "Great showroom with good options.",
+          "Straightforward dealing here.",
+          "Best shop for home setups.",
+          "Very easy buying experience.",
+          "Honest and transparent shop.",
+          "Good designs on display.",
+          "Pleasant showroom visit.",
+          "Trusted place for furniture.",
+          "Fair and simple buying process."
         ],
         vocabs: [
-          "They gave us enough time to look around and compare different models.",
-          "They have great designs ranging from modern minimalistic to classic wooden.",
-          "The pricing is totally genuine with no unnecessary hidden charges.",
-          "They helped us pick items that match our budget without compromising quality.",
-          "The entire process from selection to billing was handled transparently.",
-          "They accommodated our custom size requests without any fuss.",
-          "Showed us various fabric color swatches to match our wall paints.",
-          "The catalog and in-store display offer plenty of practical ideas.",
-          "They gave us realistic timeframes and kept every single promise.",
-          "Clear communication regarding billing, warranty, and delivery schedule.",
-          "They took the effort to understand our exact layout before recommending.",
-          "Honest advice given on what works best for Satara's climate.",
-          "Zero aggressive sales tactics, just calm and supportive interaction.",
-          "They treated our modest order with the exact same respect as a big one.",
-          "The variety of choices in solid wood is unmatched in this area."
+          "They have designs for every budget.",
+          "Gave enough time to choose.",
+          "Rates are fair without hidden charges.",
+          "Good mix of modern and classic.",
+          "Showed matching pieces for our room.",
+          "Straightforward pricing and bill.",
+          "Lots of ready models available.",
+          "Helped us stay within budget.",
+          "Clear communication on delivery.",
+          "No aggressive sales pressure.",
+          "Good collection under one roof.",
+          "Genuine advice without false promises.",
+          "Very practical design suggestions.",
+          "Staff makes shopping very simple.",
+          "Clear dealing from day one."
         ],
         ends: [
-          "Will definitely visit again for future needs.",
-          "Must visit showroom for durable home setups.",
-          "Very satisfied with our overall visit.",
-          "A dependable name in furniture.",
-          "Highly recommended for anyone moving into a new home.",
-          "Will surely suggest this shop to everyone.",
-          "A wonderful buying experience.",
-          "Glad to support an authentic local business.",
-          "Peace of mind guaranteed here.",
-          "Looking forward to shopping here again.",
-          "Hands down the best place for furniture.",
-          "Completely transparent dealing.",
-          "Truly a 5-star experience.",
-          "Five stars well deserved!",
-          "Will definitely be returning soon."
+          "Must visit showroom.",
+          "Definitely coming back.",
+          "10/10 experience.",
+          "Glad we shopped here.",
+          "Highly recommended!",
+          "Best furniture shop in town.",
+          "Very satisfied visit.",
+          "Peace of mind purchase.",
+          "Will suggest to friends.",
+          "A trustworthy store.",
+          "Great deal all around.",
+          "Happy with the experience.",
+          "Deserves 5 stars.",
+          "Smooth experience.",
+          "Will buy again soon."
         ]
       },
 
       'en-delivery': {
         openings: [
-          "Delivery was right on time as promised.",
-          "Very pleased with their delivery coordination.",
-          "Got our order delivered without any delays.",
-          "Safe packing and smooth transport service.",
-          "The logistics and dispatch were handled very professionally.",
-          "Punctual delivery service right to our doorstep.",
-          "Our furniture arrived in pristine condition.",
-          "Extremely prompt dispatch by the team.",
-          "Smooth delivery experience from warehouse to our flat.",
-          "Everything arrived right on the promised day.",
-          "Very hassle-free delivery and drop-off process.",
-          "Impressed with their punctual delivery schedule.",
-          "Safe handling of goods right from the vehicle.",
-          "Quick and safe transport of heavy wooden items.",
-          "No delays or excuses given regarding dispatch."
+          "Delivery was on time.",
+          "Got order on promised day.",
+          "Safe and quick transport.",
+          "Delivery was very smooth.",
+          "Prompt delivery to our flat.",
+          "Order reached without delay.",
+          "Delivered safely on schedule.",
+          "Very punctual delivery team.",
+          "Quick dispatch from store.",
+          "Smooth delivery process.",
+          "Furniture reached in good shape.",
+          "Very happy with delivery.",
+          "Timely drop-off at doorstep.",
+          "Delivery was handled nicely.",
+          "Safe transport of furniture."
         ],
         vocabs: [
-          "The delivery staff carried the heavy items up the stairs with utmost care.",
-          "Not a single scratch or dent on the wood or polish during transit.",
-          "The team unpacked and set up everything in our room on the spot.",
-          "They placed the heavy furniture exactly where we requested without complaining.",
-          "The packaging was neat and protected all corners properly.",
-          "The workers were polite, cautious, and cleared away the packing material.",
-          "Proper tools were used for quick on-site assembly and balancing.",
-          "They handled the glass and polished surfaces very gingerly.",
-          "The tempo driver called ahead to confirm our availability before arriving.",
-          "Assembled the double bed in just 20 minutes without any noise.",
-          "Ensured the leveling on the floor was accurate before leaving.",
-          "Handled tight staircase turns very carefully without hitting the walls.",
-          "The team was respectful of our home and wore clean slippers inside.",
-          "Everything was fitted securely and verified before they took leave.",
-          "Great teamwork shown during the unloading process."
+          "Handled carefully without scratches.",
+          "Assembled quickly on the spot.",
+          "Everything arrived in 100% shape.",
+          "Workers carried it up carefully.",
+          "Clean placement in our room.",
+          "Packing was neat and safe.",
+          "Tempo staff was very polite.",
+          "No damage to walls or furniture.",
+          "Fitted and placed accurately.",
+          "Handled tight staircase turns safely.",
+          "Assembled in just 15 minutes.",
+          "Staff placed it exactly where asked.",
+          "No rush or rough handling.",
+          "Checked everything before leaving.",
+          "Unloaded with proper care."
         ],
         ends: [
-          "Appreciate the punctual service!",
-          "Very smooth logistics overall.",
-          "Thanks for the safe delivery.",
-          "Hassle-free from start to finish.",
-          "Great job by the delivery staff.",
-          "Extremely satisfied with the handling.",
-          "Reliable service right to the doorstep.",
-          "Could not have asked for a smoother delivery.",
-          "Prompt and careful work.",
-          "Very happy with how it was handled.",
-          "Top marks for safe transport.",
-          "Seamless coordination throughout.",
-          "Careful handling is much appreciated.",
-          "Delighted with the prompt response.",
-          "A totally effortless delivery process."
+          "Thanks for smooth delivery.",
+          "Very reliable service.",
+          "Hassle-free experience.",
+          "Appreciate the punctuality!",
+          "Great work by team.",
+          "Safe and clean delivery.",
+          "Extremely satisfied.",
+          "Smooth from start to finish.",
+          "Prompt and polite workers.",
+          "Thank you Bafna Furniture!",
+          "Quick and careful job.",
+          "Zero hassle delivery.",
+          "Well coordinated dispatch.",
+          "Full marks for delivery.",
+          "Very good service."
         ]
       },
 
       'en-value': {
         openings: [
-          "Good quality furniture at a reasonable price.",
-          "Solid furniture and full paisa vasool!",
-          "Affordable pricing compared to other big showrooms.",
-          "Genuine rates without unnecessary bargaining.",
-          "Fair deals and clear pricing across all items.",
-          "Very reasonable pricing for solid wood.",
-          "Got a great deal on our living room furniture.",
-          "High-end durability at honest local prices.",
-          "Value for money in the truest sense.",
-          "Pricing is completely transparent and fair.",
-          "Great quality without crazy showroom markups.",
-          "Budget-friendly furniture that doesn't feel cheap.",
-          "Honest rates for authentic teak and timber work.",
-          "Very cost-effective furniture purchase.",
-          "Sensible pricing structure for durable home goods."
+          "Reasonable price for good wood.",
+          "Solid furniture at fair rates.",
+          "Affordable rates in town.",
+          "Genuine pricing without bargaining.",
+          "Fair deals on furniture.",
+          "Got a good deal on our set.",
+          "Very cost-effective purchase.",
+          "Honest rates for solid furniture.",
+          "Budget friendly and sturdy.",
+          "Clear pricing with no tricks.",
+          "Great rates for durable stuff.",
+          "Sensible pricing for home goods.",
+          "No overcharging at all.",
+          "Fair quote given right away.",
+          "Very affordable and durable."
         ],
         vocabs: [
-          "They didn't try to overcharge and gave us a genuine quotation.",
-          "For this kind of wood durability, the rate is completely justified.",
-          "They have great options across all budget ranges without cutting corners.",
-          "The pricing matches the superior craftsmanship provided.",
-          "Much better value than spending on temporary online particle board.",
-          "They offered a very competitive package deal for the complete bedroom set.",
-          "You get authentic solid timber at rates that make total sense.",
-          "Clear breakdown of rates with zero hidden extra costs.",
-          "Given the thickness of the wood and finish, it's a steal.",
-          "They respect the customer's budget and give practical recommendations.",
-          "No inflated rates just to give fake discounts later.",
-          "Worth every single rupee considering how durable the build is.",
-          "Great balance of aesthetic appeal and sensible pricing.",
-          "High durability items that justify every bit of investment.",
-          "Honest market rates with genuine material assurance."
+          "Rate is fair for this durability.",
+          "Good options for every budget.",
+          "Worth every rupee spent.",
+          "No fake discounts, just fair price.",
+          "Much better value than online boards.",
+          "Quality justifies the pricing completely.",
+          "Straightforward bill with no extras.",
+          "Genuine wood at honest rates.",
+          "Competitive pricing compared to others.",
+          "They respect the customer's budget.",
+          "Solid build at honest market price.",
+          "High durability at reasonable cost.",
+          "Best pricing for this heavy wood.",
+          "Honest value for money items.",
+          "Fair package deal for whole set."
         ],
         ends: [
-          "Totally worth every rupee spent.",
-          "Happy with the deal we got.",
-          "Full paisa vasool!",
-          "Definitely coming back for more items.",
-          "A smart investment for any household.",
-          "Very satisfied with the quotation and quality.",
-          "Fair dealing at its best.",
-          "True value for hard-earned money.",
-          "Very pleased with the financial value.",
-          "Couldn't find a fairer price anywhere else.",
-          "Super happy with our purchase!",
-          "Genuine rates and durable goods.",
-          "A purchase we feel very good about.",
-          "Highly satisfied with the cost and finish.",
-          "Strongly recommend for budget conscious buyers."
+          "Total paisa vasool!",
+          "Happy with the deal.",
+          "Definitely worth the money.",
+          "Very satisfied with rates.",
+          "Smart investment for home.",
+          "Best deal in the area.",
+          "Full satisfaction on price.",
+          "Will buy from here again.",
+          "Fair dealing all around.",
+          "Worth every single rupee.",
+          "Genuine and honest rates.",
+          "Happy with our purchase.",
+          "Super value deal!",
+          "A purchase well made.",
+          "Highly recommend for budget."
         ]
       },
 
-      // MARATHI (15 x 15 x 15 Matrix)
+      // MARATHI
       'mr-service': {
         openings: [
-          "काका आणि सर्व स्टाफचा स्वभाव खूप नम्र आहे.",
-          "इथे आल्यावर खूप छान आणि आपुलकीचा अनुभव आला.",
-          "ग्राहकांशी बोलण्याची आणि वागण्याची पद्धत खूप आवडली.",
-          "स्टाफ अतिशय मनमिळाऊ आणि मदत करणारा आहे.",
-          "बाफना फर्निचरमध्ये खरेदीचा अनुभव खूप समाधानकारक राहिला.",
-          "दुकानात पाऊल ठेवल्यापासून खूप आदराने वागवले.",
-          "ग्राहकांना सन्मान देणारे आणि विश्वासू दुकान.",
-          "खरेदीसाठी अत्यंत उत्तम आणि आदरयुक्त वातावरण.",
-          "इथली ग्राहक सेवा खरोखरच खूप वाखाणण्याजोगी आहे.",
-          "फार कमी ठिकाणी असा नम्र आणि प्रामाणिक स्टाफ बघायला मिळतो.",
-          "खरेदी करताना खूप आपलेपणा वाटला.",
-          "मालक आणि कामगार सर्वांचे बोलणे अतिशय आदरयुक्त आहे.",
-          "ग्राहकांच्या समाधानाला प्राधान्य देणारे दुकान.",
-          "अत्यंत मनमिळाऊ आणि सहकार्य करणारी माणसे.",
-          "खरेदीचा अनुभव अतिशय सुखद आणि चांगला राहिला."
+          "स्टाफचा स्वभाव खूप नम्र आहे.",
+          "इथे खूप चांगला अनुभव आला.",
+          "बोलण्याची पद्धत खूप आवडली.",
+          "स्टाफ अतिशय मनमिळाऊ आहे.",
+          "खरेदीचा अनुभव छान राहिला.",
+          "दुकानात खूप आदराने वागवले.",
+          "ग्राहकांना सन्मान देणारे दुकान.",
+          "खूप नम्र आणि मदत करणारा स्टाफ.",
+          "खरेदी करताना आपलेपणा वाटला.",
+          "सर्व कामगारांचे बोलणे चांगले आहे.",
+          "ग्राहकाला चांगले समजून घेतात.",
+          "अत्यंत सहकार्य करणारी माणसे.",
+          "खरेदीचा अनुभव सुखद राहिला.",
+          "खूप शांत आणि चांगली माणसं आहेत.",
+          "चांगली वागणूक मिळाली."
         ],
         vocabs: [
-          "अजिबात घाई न करता शांतपणे सगळ्या व्हरायटी दाखवल्या आणि समजावून सांगितलं.",
-          "आमच्या बजेटनुसार आणि घराच्या जागेनुसार त्यांनी योग्य तेच सुचवलं.",
-          "कोणतीही जबरदस्ती न करता अगदी व्यवस्थित मार्गदर्शन केलं.",
-          "लाकडाबद्दल आणि डिझाईन्सबद्दल अगदी मनापासून माहिती दिली.",
-          "आम्हाला पाहिजे तसे मॉडेल निवडेपर्यंत खूप संयमाने मदत केली.",
-          "साइज आणि फिटिंगबद्दल त्यांनी खूप मोलाचा सल्ला दिला.",
-          "ग्राहकाचा खिसा आणि गरज ओळखून योग्य पर्याय पुढे ठेवले.",
-          "लाकडाचा प्रकार, पॉलिश आणि टिकाऊपणा याबद्दल प्रामाणिक माहिती दिली.",
-          "घरातील इतर फर्निचरला शोभेल अशा रंगांची आणि डिझाईनची निवड करून दिली.",
-          "कोणत्याही प्रकारची फसवणूक न करता स्पष्ट व्यवहार केला.",
-          "प्रत्येक फर्निचरची बारीक माहिती अगदी आपुलकीने समजावून सांगितली.",
-          "आमच्या छोट्या खरेदीला सुद्धा तेवढाच वेळ आणि आदर दिला.",
-          "वारंवार विचारलेल्या शंकांचे शांतपणे निरसन केले.",
-          "विश्वासू सल्ला देऊन आमची योग्य निवड करून दिली.",
-          "खरेदी करताना कसलाही ताण जाणवू दिला नाही."
+          "घाई न करता व्हरायटी दाखवल्या.",
+          "जागेनुसार योग्य तेच सुचवलं.",
+          "जबरदस्ती न करता मार्गदर्शन केलं.",
+          "लाकडाबद्दल मनापासून माहिती दिली.",
+          "संयमाने निवड करायला मदत केली.",
+          "बजेटनुसार चांगले पर्याय दाखवले.",
+          "सर्व शंकांचे निरसन केले.",
+          "प्रामाणिक आणि चांगला सल्ला दिला.",
+          "डिझाईन्स समजावून सांगितल्या.",
+          "कामाची घाई अजिबात केली नाही.",
+          "खूप आपुलकीने मदत केली.",
+          "योग्य तेच फर्निचर सुचवले.",
+          "सगळे पर्याय शांतपणे दाखवले.",
+          "आम्हाला हवे तसे मॉडेल निवडले.",
+          "स्पष्ट आणि स्वच्छ माहिती दिली."
         ],
         ends: [
           "नक्कीच पुन्हा भेट देऊ!",
-          "अशी प्रामाणिक सेवा मिळणे अवघड आहे.",
           "खूप समाधान वाटले.",
-          "इतरांनाही नक्की शिफारस करेन.",
-          "उत्तम सेवेबद्दल मनःपूर्वक धन्यवाद!",
-          "खरेदी करून खूप आनंद झाला.",
+          "इतरांनाही नक्की सांगेन.",
+          "उत्तम सेवेसाठी धन्यवाद!",
           "१००% समाधानी ग्राहक.",
-          "विश्वासू सेवेसाठी ५ स्टार!",
           "नातेवाईकांना नक्की सुचवेन.",
-          "पुढच्या वेळीही इथूनच खरेदी करू.",
+          "पुन्हा इथूनच खरेदी करू.",
           "एक नंबर अनुभव राहिला!",
           "खूप छान आणि नम्र सेवा.",
-          "ग्राहकाची मनं जिंकणारे दुकान.",
-          "असेच उत्तम काम चालू ठेवा.",
-          "अतिशय सुंदर अनुभव."
+          "मन जिंकणारे दुकान.",
+          "खूप आनंद झाला.",
+          "विश्वासू सेवा मिळाली.",
+          "चांगला अनुभव आला.",
+          "धन्यवाद बाफना फर्निचर!",
+          "५ स्टार सेवा!"
         ]
       },
 
       'mr-quality': {
         openings: [
-          "फर्निचरची क्वालिटी खरंच खूप छान आहे.",
-          "इथून घेतलेल्या सामानाची क्वालिटी एकदम भारी आहे.",
-          "दर्जेदार आणि टिकाऊ फर्निचरसाठी सर्वोत्तम पर्याय.",
-          "लाकूड एकदम मजबूत आहे आणि पॉलिशचं कामही चोख आहे.",
-          "घरासाठी फर्निचर घेतलं आणि क्वालिटी मनापासून आवडली.",
-          "आम्ही इथून लाकडी बेड आणि कपाट खरेदी केले.",
-          "इथले फर्निचर दिसायला सुंदर आणि वापरायला मजबूत आहे.",
-          "लाकडाचा दर्जा आणि कामाची सफाई वाखाणण्याजोगी आहे.",
-          "घरातील दिवाणखान्यासाठी सोफा घेतला, एकदम क्लासिक लुक आला.",
-          "वर्षानुवर्षे टिकणारे मजबूत फर्निचर हवे असल्यास हेच योग्य ठिकाण.",
-          "काम अतिशय चोख आणि पक्के करून दिले आहे.",
-          "इथल्या वस्तूंचा दर्जा पाहून खूप समाधान वाटले.",
-          "मजबूत काम आणि स्वच्छ पॉलिश यामुळे फर्निचर उठून दिसते.",
-          "पारंपरिक आणि आधुनिक दोन्ही पद्धतीचे काम उत्तम आहे.",
-          "दर्जाच्या बाबतीत कोणतीही तडजोड न करणारे दुकान."
+          "फर्निचरची क्वालिटी खूप छान आहे.",
+          "सामानाची क्वालिटी एकदम भारी आहे.",
+          "मजबूत फर्निचरसाठी उत्तम पर्याय.",
+          "लाकूड एकदम पक्के आणि मजबूत आहे.",
+          "फर्निचरची क्वालिटी मनापासून आवडली.",
+          "इथून बेड आणि कपाट घेतले.",
+          "दिसायला सुंदर आणि मजबूत आहे.",
+          "लाकडाचा दर्जा खूप भारी आहे.",
+          "घरासाठी सोफा घेतला, छान लुक आला.",
+          "वर्षानुवर्षे टिकणारे फर्निचर आहे.",
+          "काम अतिशय चोख करून दिले.",
+          "वस्तूंचा दर्जा पाहून समाधान वाटले.",
+          "मजबूत काम आणि स्वच्छ पॉलिश आहे.",
+          "लाकूड वजनदार आणि भरभक्कम आहे.",
+          "दर्जाच्या बाबतीत कोणतीही तडजोड नाही."
         ],
         vocabs: [
-          "अजिबात पोकळ काम नाही, एकदम मजबूत आणि पक्का माल आहे.",
-          "फिटिंग आणि पॉलिश दोन्ही एक नंबर, घरात आणून ठेवल्यावर सामान मस्त दिसतंय.",
-          "कुठेही कामात तडजोड दिसत नाही, साहित्य अतिशय टिकाऊ वापरले आहे.",
-          "ऑनलाइन फर्निचरपेक्षा इथलं काम कितीतरी पटीने मजबूत आणि दर्जेदार आहे.",
-          "कडा आणि पॉलिशिंगचे काम अतिशय सफाईदारपणे केले आहे.",
-          "लाकूड वजनदार आणि मजबूत असल्यामुळे दीर्घकाळ टिकेल यात शंका नाही.",
-          "हँडल्स आणि बिजागऱ्यांची क्वालिटी सुद्धा खूप उच्च दर्जाची वापरली आहे.",
-          "साधी ठोकपट्टी न वापरता योग्य लाकडी जोडणी करून मजबूत बनवले आहे.",
-          "घराच्या रंगसंगतीला साजेसे असे सुंदर पॉलिश करून मिळाले.",
-          "मजबुती आणि टिकाऊपणा या दोन्ही बाबतीत हे काम अव्वल आहे.",
-          "लाकडाची जाडी आणि फ्रेमिंग खूप भरीव आहे.",
-          "वापरात आणल्यावर वस्तूचा खरा टिकाऊपणा दिसून येतो.",
-          "बारीक नक्षीकाम आणि फिनिशिंग अगदी मनासारखी करून दिली.",
-          "खऱ्याखुऱ्या चांगल्या लाकडाचा वापर स्पष्टपणे जाणवतो.",
-          "आधुनिक डिझाईन आणि अस्सल मजबुतीचा सुंदर मेळ आहे."
+          "अजिबात पोकळ काम नाही, मजबूत आहे.",
+          "फिटिंग आणि पॉलिश दोन्ही एक नंबर.",
+          "साहित्य अतिशय टिकाऊ वापरले आहे.",
+          "ऑनलाइनपेक्षा काम खूप मजबूत आहे.",
+          "पॉलिशिंगचे काम सफाईदार केले आहे.",
+          "लाकूड वजनदार आणि टिकाऊ आहे.",
+          "घरात ठेवल्यावर खूप मस्त दिसतेय.",
+          "बारीक कामही व्यवस्थित केले आहे.",
+          "फ्रेमिंग खूप मजबूत दिली आहे.",
+          "मजबुती खरोखरच कौतुकास्पद आहे.",
+          "कामात कुठेही निष्काळजीपणा नाही.",
+          "अस्सल लाकडाचा वापर केला आहे.",
+          "फिटिंग अगदी जागेवर नीट बसवली.",
+          "वापरायला खूप मजबूत वाटते.",
+          "डिझाईन आणि मजबुती दोन्ही उत्तम."
         ],
         ends: [
-          "पैशांचे पूर्ण समाधान (पैसा वसूल)!",
-          "घेतलेली वस्तू मनापासून आवडली.",
+          "पूर्ण पैसा वसूल खरेदी!",
+          "घेतलेली वस्तू खूप आवडली.",
           "अतिशय दर्जेदार फर्निचर.",
-          "घराची शोभा वाढवणारे फर्निचर!",
-          "कामाची क्वालिटी पाहून खूप आनंद झाला.",
-          "नक्कीच अभिमान वाटावा असे फर्निचर.",
+          "घराची शोभा वाढली!",
+          "पैशांचे पूर्ण समाधान मिळाले.",
           "दीर्घकाळ टिकणारी खरी वस्तू.",
-          "पैशांचा योग्य मोबदला मिळाला.",
-          "क्वालिटीच्या बाबतीत १००% खात्रीशीर.",
-          "घरगुती वापरासाठी सर्वोत्तम माल.",
-          "खूप भारी काम करून दिलंय.",
-          "दर्जेदार लाकडी कामासाठी उत्तम पर्याय.",
-          "मनासारखे काम झाले, धन्यवाद!",
-          "समाधान देणारे अस्सल काम.",
-          "पूर्णपणे पैसा वसूल खरेदी!"
+          "योग्य मोबदला मिळाला.",
+          "क्वालिटी एकदम खात्रीशीर आहे.",
+          "खूप भारी काम झाले.",
+          "मनासारखी वस्तू मिळाली!",
+          "१००% उत्तम माल.",
+          "दर्जा खूप चांगला आहे.",
+          "मनापासून समाधान वाटले.",
+          "उत्तम फिनिशिंग!",
+          "खूपच मस्त काम."
         ]
       },
 
       'mr-experience': {
         openings: [
-          "दुकानात चांगली व्हरायटी आहे आणि दर सुद्धा वाजवी आहेत.",
-          "आपल्या भागातलं फर्निचरसाठी सर्वात जुनं आणि विश्वासू दुकान.",
+          "चांगली व्हरायटी आणि वाजवी दर.",
+          "भागातलं सर्वात विश्वासू दुकान.",
           "खरेदीचा अनुभव खूप छान राहिला.",
-          "घरगुती फर्निचर घ्यायचं असेल तर नक्की भेट द्यायला हवी.",
-          "व्यवहार एकदम स्वच्छ आणि पारदर्शक आहे.",
-          "शहरातील फर्निचरसाठी एक अत्यंत खात्रीशीर नाव.",
-          "इथे फर्निचरचे भरपूर प्रकार बघायला मिळतात.",
-          "स्थानिक लोकांच्या पसंतीस उतरलेले नामांकित दुकान.",
-          "अनेक वर्षांची परंपरा आणि विश्वास जपणारे दुकान.",
-          "फर्निचर खरेदीसाठी खूप योग्य आणि सोयीचे ठिकाण.",
-          "पहिल्याच भेटीत दुकान आणि माणसे दोन्ही आवडली.",
-          "योग्य मार्गदर्शन आणि उत्तम व्यवहार लाभला.",
-          "बाजारातील गर्दीपेक्षा इथे शांतपणे खरेदी करता आली.",
-          "ग्राहकाची गरज अचूक ओळखणारे अनुभवी लोक.",
-          "फार जुने आणि विश्वासाला पात्र असलेले दुकान."
+          "फर्निचरसाठी नक्की भेट द्यावी.",
+          "व्यवहार स्वच्छ आणि पारदर्शक आहे.",
+          "शहरातील एक खात्रीशीर नाव.",
+          "इथे भरपूर प्रकार बघायला मिळतात.",
+          "लोकांच्या पसंतीस उतरलेले दुकान.",
+          "विश्वास जपणारे नामांकित दुकान.",
+          "फर्निचरसाठी योग्य ठिकाण आहे.",
+          "पहिल्याच भेटीत दुकान आवडले.",
+          "योग्य मार्गदर्शन लाभले.",
+          "अनुभवी लोकांचे दुकान आहे.",
+          "जुनं आणि विश्वासाचे दुकान.",
+          "बजेटनुसार भरपूर व्हरायटी आहे."
         ],
         vocabs: [
-          "स्टाफने व्यवस्थित मार्गदर्शन केलं आणि निवड करताना खूप मदत झाली.",
-          "योग्य सल्ला देऊन चांगली वस्तू मिळवून दिली.",
-          "भरपूर डिझाईन्स बघायला मिळाल्या आणि किमतीही खिशाला परवडणाऱ्या आहेत.",
-          "आमच्या बजेटनुसार भरपूर चांगले पर्याय दाखवले.",
-          "कोणतीही लपवाछपवी न करता स्पष्ट आणि प्रामाणिक बिलिंग केले.",
-          "साइज आणि जागेनुसार पर्याय सुचवल्यामुळे खरेदी सोपी झाली.",
-          "घराच्या प्रत्येक खोलीसाठी आवश्यक सामान एकाच छताखाली मिळाले.",
-          "दिलेली मुदत आणि शब्दांचे तंतोतंत पालन केले.",
-          "बजेट कमी असले तरीही चांगल्या दर्जाचे सामान उपलब्ध करून दिले.",
-          "ग्राहकाचा वेळ आणि पैसा या दोन्हीचा योग्य आदर ठेवला.",
-          "विविध डिझाइन्सची माहिती देऊन योग्य निवड करायला लावली.",
-          "खरेदी करताना कसलाही संकोच वाटू दिला नाही.",
-          "इथली व्यवस्था आणि सामानाची मांडणी खूप सुंदर आहे.",
-          "प्रत्येक वस्तूची किंमत वाजवी आणि योग्य ठेवली आहे.",
-          "पारदर्शक व्यवहारामुळे खरेदी करताना पूर्ण विश्वास बसला."
+          "निवड करताना खूप मदत झाली.",
+          "योग्य सल्ला देऊन चांगली वस्तू दिली.",
+          "किमती खिशाला परवडणाऱ्या आहेत.",
+          "बजेटनुसार चांगले पर्याय दाखवले.",
+          "कोणतीही लपवाछपवी न करता बिल केले.",
+          "सर्व सामान एकाच छताखाली मिळाले.",
+          "दिलेल्या शब्दांचे तंतोतंत पालन केले.",
+          "कमी बजेटमध्ये उत्तम माल दिला.",
+          "ग्राहकाचा वेळ आणि पैसा जपला.",
+          "योग्य निवड करायला मदत केली.",
+          "व्यवहार अगदी सरळ आणि सोपा झाला.",
+          "इथली व्यवस्था खूप छान आहे.",
+          "वाजवी किमतीत उत्तम खरेदी झाली.",
+          "पारदर्शकतेमुळे पूर्ण विश्वास बसला.",
+          "खरेदी करताना कसलाही त्रास झाला नाही."
         ],
         ends: [
-          "नातेवाईकांना आणि मित्रांना नक्की सुचवेन.",
+          "नातेवाईकांना नक्की सुचवेन.",
           "एक नंबर अनुभव आला!",
           "नक्कीच पुन्हा खरेदी करू.",
           "विश्वासू दुकान, नक्की भेट द्या.",
-          "खूप छान आणि समाधानकारक व्यवहार.",
+          "समाधानकारक व्यवहार झाला.",
           "फर्निचरसाठी सर्वोत्तम ठिकाण.",
-          "५ स्टार देण्यासारखा अनुभव.",
-          "अतिशय उत्तम आणि विश्वासू सेवा.",
-          "पुढील खरेदीसाठी पहिली पसंती हीच असेल.",
-          "ग्राहकाचे मन जिंकणारा अनुभव.",
-          "सर्व बाबींमध्ये पूर्ण समाधान!",
-          "खरेदीचा आनंद द्विगुणित झाला.",
+          "५ स्टार अनुभव!",
+          "पुन्हा इथेच येऊ.",
           "धन्यवाद बाफना फर्निचर!",
-          "अतिशय प्रामाणिक कारभार.",
-          "आनंदाने शिफारस करेन."
+          "आनंदाने शिफारस करेन.",
+          "उत्तम खरेदी झाली.",
+          "खूप समाधान वाटले.",
+          "विश्वासू कारभार आहे.",
+          "सर्वोत्तम दुकान!",
+          "मनःपूर्वक आभार."
         ]
       },
 
       'mr-delivery': {
         openings: [
-          "सांगितलेल्या वेळेत डिलिव्हरी मिळाली आणि सामान व्यवस्थित पोहोचवलं.",
-          "डिलिव्हरी अगदी वेळेवर आणि चोख झाली.",
-          "सामान सुरक्षितपणे आणि काळजीपूर्वक आणून दिलं.",
-          "डिलिव्हरीची सेवा खूप तत्पर आणि समाधानकारक होती.",
-          "वेळेचे पक्के नियोजन आणि चोख पोहोच सेवा.",
-          "घरापर्यंत सामान सुरक्षित आणून देण्याची उत्तम व्यवस्था.",
-          "अतिशय काळजीपूर्वक वाहतूक आणि डिलिव्हरी केली.",
-          "सांगितलेल्या तारखेला सामान घरी हजर झाले.",
-          "डिलिव्हरीची प्रक्रिया अगदी सोपी आणि त्रासमुक्त झाली.",
-          "सामान पोहोचवताना कर्मचाऱ्यांनी उत्तम सहकार्य केले.",
-          "वेळेत माल पोहोचवून दिलेला शब्द पाळला.",
-          "सामान हाताळण्याची पद्धत अतिशय सुरक्षित होती.",
-          "वेळेवर डिलिव्हरी मिळाल्यामुळे खूप सोय झाली.",
-          "सुरक्षित वाहतुकीसाठी उत्तम नियोजन.",
-          "डिलिव्हरी बाबतीत कसलीही तक्रार नाही."
+          "वेळेवर डिलिव्हरी मिळाली.",
+          "डिलिव्हरी वेळेवर आणि चोख झाली.",
+          "सामान सुरक्षितपणे आणून दिले.",
+          "डिलिव्हरी सेवा खूप तत्पर होती.",
+          "वेळेचे पक्के नियोजन होते.",
+          "सामान घरी सुरक्षित पोहोचवले.",
+          "काळजीपूर्वक डिलिव्हरी केली.",
+          "सांगितलेल्या तारखेला माल आला.",
+          "डिलिव्हरी प्रक्रिया अगदी सोपी झाली.",
+          "कामगारांनी उत्तम सहकार्य केले.",
+          "वेळेत सामान पोहोचवले.",
+          "सामान सुरक्षित हाताळले.",
+          "वेळेवर सामान मिळाल्याने सोय झाली.",
+          "सुरक्षित वाहतूक झाली.",
+          "डिलिव्हरीची कोणतीही तक्रार नाही."
         ],
         vocabs: [
-          "गाडीवाल्यांनी घरात आणताना कुठेही ओरखडा पडू दिला नाही.",
-          "सामान व्यवस्थित घरात आणून जागेवर लावून दिलं.",
-          "कोणतीही तोडफोड न होता अगदी वेळेत फिटिंग करून दिली.",
-          "जिने चढवताना सामानाची खूप काळजी घेतली गेली.",
-          "गाडीत पॅकिंग सुरक्षित असल्यामुळे वस्तूला साधा धक्काही लागला नाही.",
-          "कामगारांनी सामान योग्य खोलीत नेऊन व्यवस्थित मांडून दिले.",
-          "घरातील इतर सामानाला धक्का न लावता काम शांतपणे केले.",
-          "फिटिंगचे सर्व नट-बोल्ट जागेवर व्यवस्थित घट्ट बसवून दिले.",
-          "सामान जागेवर बसवल्यानंतर सर्व तपासून खात्री करून दिली.",
-          "कामगारांचे बोलणे आणि वागणे अतिशय आदरयुक्त होते.",
-          "डिलिव्हरी झाल्यावर कचरा किंवा पॅकिंग तिथेच न टाकता स्वच्छता ठेवली.",
-          "अडचणीच्या जागेतूनही फर्निचर अतिशय कौशल्याने आत आणले.",
-          "वेळेपूर्वी फोन करून आमच्या सोयीनुसार सामान आणले.",
-          "सामान हाताळताना दाखवलेली काळजी कौतुकास्पद होती.",
-          "जागेवर लगेच जोडणी करून देऊन वेळ वाचवला."
+          "कुठेही ओरखडा पडू दिला नाही.",
+          "सामान घरात जागेवर लावून दिले.",
+          "वेळेत फिटिंग करून दिली.",
+          "जिने चढवताना सामानाची काळजी घेतली.",
+          "गाडीत पॅकिंग सुरक्षित होते.",
+          "सामान योग्य खोलीत मांडून दिले.",
+          "इतर सामानाला धक्का लागू दिला नाही.",
+          "नट-बोल्ट जागेवर घट्ट बसवले.",
+          "सर्व तपासून खात्री करून दिली.",
+          "कामगारांचे बोलणे नम्र होते.",
+          "पॅकिंगचा कचरा व्यवस्थित गोळा केला.",
+          "अडचणीच्या जागेतूनही सामान नीट आणले.",
+          "वेळेपूर्वी फोन करून सामान आणले.",
+          "सामान काळजीपूर्वक हाताळले.",
+          "लगेच जोडणी करून दिली."
         ],
         ends: [
-          "वेळेची शिस्त आणि कामाची पद्धत दोन्ही खूप आवडली.",
+          "वेळेची शिस्त खूप आवडली.",
           "काळजीपूर्वक सेवेबद्दल धन्यवाद!",
-          "तत्पर सेवेसाठी मनःपूर्वक आभार.",
-          "अतिशय चोख आणि सुरक्षित सेवा.",
-          "कोणताही त्रास न होता सामान मिळाले.",
-          "डिलिव्हरी टीमचे खूप खूप आभार!",
+          "तत्पर सेवेसाठी आभार.",
+          "चोख आणि सुरक्षित सेवा.",
+          "कोणताही त्रास झाला नाही.",
+          "डिलिव्हरी टीमचे आभार!",
           "काम एकदम चोख झाले.",
-          "१००% सुरक्षित आणि वेळेवर सेवा.",
-          "अतिशय विश्वासू वाहतूक सेवा.",
+          "१००% सुरक्षित सेवा.",
+          "विश्वासू वाहतूक सेवा.",
           "पूर्ण समाधानी आहोत.",
-          "उत्तम सेवा, धन्यवाद बाफना फर्निचर!",
-          "वेळेचे अचूक पालन केले.",
-          "सुरक्षित पोहोचवल्याबद्दल ५ स्टार.",
-          "नक्कीच कौतुक करावे असे काम.",
-          "अतिशय तत्पर आणि सुरक्षित व्यवस्था."
+          "धन्यवाद बाफना फर्निचर!",
+          "वेळेचे पालन केले.",
+          "सुरक्षित पोहोचवले.",
+          "कौतुक करावे असे काम.",
+          "खूप छान व्यवस्था."
         ]
       }
     };
@@ -920,14 +919,13 @@
     }
 
     function generateUniqueReview(cardId) {
-      const pool = dynamicMatrix[cardId];
+      const pool = humanMatrix[cardId];
       if (!pool) return "";
 
       const usedList = getUsedReviews();
       let chosenText = "";
       let attempts = 0;
 
-      // Try up to 50 random variations to find one not yet burned
       while (attempts < 50) {
         const o = pool.openings[Math.floor(Math.random() * pool.openings.length)];
         const v = pool.vocabs[Math.floor(Math.random() * pool.vocabs.length)];
@@ -941,7 +939,6 @@
         attempts++;
       }
 
-      // If every combination in pool was used on this device, fall back to any fresh pick
       if (!chosenText) {
         const o = pool.openings[Math.floor(Math.random() * pool.openings.length)];
         const v = pool.vocabs[Math.floor(Math.random() * pool.vocabs.length)];
@@ -975,7 +972,7 @@
       if (lang === 'en') {
         document.getElementById('group-en').classList.add('active');
         selfTitle.innerText = "Want to write your own review?";
-        selfDesc.innerText = "Have a specific experience to share? Tap below to open Google Reviews directly.";
+        selfDesc.innerText = "Have a specific purchase to mention? Tap below to open Google directly.";
         selfBtnText.innerText = "✍️ Write Directly on Google";
       } else {
         document.getElementById('group-mr').classList.add('active');
@@ -1005,17 +1002,12 @@
       const el = document.getElementById(`review-${cardId}`);
       const text = el.innerText;
       
-      // 1. Copy text
       copyToClipboard(text);
-
-      // 2. Burn this review permanently so it never generates again on this phone
       saveUsedReview(text);
 
-      // 3. Visual button cue
       button.classList.add('copied');
       button.innerHTML = "<span>✓ Copied! Opening Google...</span>";
 
-      // 4. Direct redirect without popup blocks
       setTimeout(() => {
         window.location.href = GOOGLE_REVIEW_URL;
       }, 300);
@@ -1025,9 +1017,27 @@
       window.location.href = GOOGLE_REVIEW_URL;
     }
 
+    // Secret Admin Tap: Tap the "Since 1985" badge 5 times to inspect burned reviews
+    let adminTapCount = 0;
+    const badgeEl = document.querySelector('.legacy-tag');
+    if (badgeEl) {
+      badgeEl.addEventListener('click', () => {
+        adminTapCount++;
+        if (adminTapCount === 5) {
+          adminTapCount = 0;
+          const used = getUsedReviews();
+          if (used.length === 0) {
+            alert("No reviews have been burned/copied on this device yet.");
+          } else {
+            alert(`Burned Reviews (${used.length}):\n\n` + used.join("\n---\n"));
+          }
+        }
+      });
+    }
+
     // Auto-generate fresh unburned text for every card on load/refresh
     window.addEventListener("DOMContentLoaded", () => {
-      Object.keys(dynamicMatrix).forEach(cardId => {
+      Object.keys(humanMatrix).forEach(cardId => {
         const el = document.getElementById(`review-${cardId}`);
         if (el) el.innerText = generateUniqueReview(cardId);
       });
