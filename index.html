@@ -1,1 +1,1047 @@
-https://g.page/r/CXtSAphdamhgEBM/review
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>The Bafna Furniture — Customer Reviews</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #92400e;
+      --primary-light: #fef3c7;
+      --bg: #fbfbfa;
+      --surface: #ffffff;
+      --border: #e7e5e4;
+      --text-main: #1c1917;
+      --text-muted: #78716c;
+      --star: #f59e0b;
+      --radius: 16px;
+      --shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px 16px 40px;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 460px;
+    }
+
+    .header-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .legacy-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .header-card h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .rating-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--star);
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .header-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .lang-tabs {
+      background: #f5f5f4;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 9px 0;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tab-btn.active {
+      background: var(--surface);
+      color: var(--text-main);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .view-group {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .view-group.active {
+      display: flex;
+    }
+
+    .review-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s ease;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .tag-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+
+    .btn-shuffle-icon {
+      background: #f5f5f4;
+      border: none;
+      color: var(--text-muted);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-shuffle-icon:active {
+      background: #e7e5e4;
+      transform: scale(0.95);
+    }
+
+    .review-quote {
+      font-size: 0.94rem;
+      line-height: 1.5;
+      color: #292524;
+      min-height: 44px;
+      margin-bottom: 16px;
+      transition: opacity 0.15s ease;
+    }
+
+    .btn-copy-cta {
+      width: 100%;
+      background: var(--text-main);
+      color: #fff;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-copy-cta:active {
+      transform: scale(0.98);
+      background: #000;
+    }
+
+    .btn-copy-cta.copied {
+      background: #15803d !important;
+    }
+
+    .self-review-card {
+      background: var(--surface);
+      border: 1.5px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      margin-top: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+
+    .self-review-card h3 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .self-review-card p {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .btn-direct-redirect {
+      width: 100%;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-direct-redirect:active {
+      transform: scale(0.98);
+      background: #78350f;
+    }
+
+    .disclaimer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 24px;
+      line-height: 1.5;
+      padding: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <div class="header-card">
+      <div class="legacy-tag" title="Tap 5 times for Admin">Serving Customers Since 1985</div>
+      <div class="rating-row">★★★★★</div>
+      <h1>The Bafna Furniture</h1>
+      <p>Tap a review below to copy it and post directly on Google.</p>
+    </div>
+
+    <div class="lang-tabs">
+      <button class="tab-btn active" onclick="switchLanguage('en', this)">English</button>
+      <button class="tab-btn" onclick="switchLanguage('mr', this)">मराठी (Marathi)</button>
+    </div>
+
+    <div class="view-group active" id="group-en">
+      <div class="review-card">
+        <div class="card-top">
+          <span class="tag-badge">Staff & Service</span>
+          <button class="btn-shuffle-icon" onclick="shuffleCard('en-service')">↻ Shuffle</button>
+        </div>
+        <p class="review-quote" id="review-en-service"></p>
+        <button class="btn-copy-cta" onclick="handleCardClick('en-service', this)">
+          <span>📋 Copy & Review on Google</span>
+        </button>
+      </div>
+
+      <div class="review-card">
+        <div class="card-top">
+          <span class="tag-badge">Wood & Quality</span>
+          <button class="btn-shuffle-icon" onclick="shuffleCard('en-quality')">↻ Shuffle</button>
+        </div>
+        <p class="review-quote" id="review-en-quality"></p>
+        <button class="btn-copy-cta" onclick="handleCardClick('en-quality', this)">
+          <span>📋 Copy & Review on Google</span>
+        </button>
+      </div>
+
+      <div class="review-card">
+        <div class="card-top">
+          <span class="tag-badge">Variety & Experience</span>
+          <button class="btn-shuffle-icon" onclick="shuffleCard('en-experience')">↻ Shuffle</button>
+        </div>
+        <p class="review-quote" id="review-en-experience"></p>
+        <button class="btn-copy-cta" onclick="handleCardClick('en-experience', this)">
+          <span>📋 Copy & Review on Google</span>
+        </button>
+      </div>
+
+      <div class="review-card">
+        <div class="card-top">
+          <span class="tag-badge">Safe Delivery</span>
+          <button class="btn-shuffle-icon" onclick="shuffleCard('en-delivery')">↻ Shuffle</button>
+        </div>
+        <p class="review-quote" id="review-en-delivery"></p>
+        <button class="btn-copy-cta" onclick="handleCardClick('en-delivery', this)">
+          <span>📋 Copy & Review on Google</span>
+        </button>
+      </div>
+
+      <div class="review-card">
+        <div class="card-top">
+          <span class="tag-badge">Value for Money</span>
+          <button class="btn-shuffle-icon" onclick="shuffleCard('en-value')">↻ Shuffle</button>
+        </div>
+        <p class="review-quote" id="review-en-value"></p>
+        <button class="btn-copy-cta" onclick="handleCardClick('en-value', this)">
+          <span>📋 Copy & Review on Google</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="view-group" id="group-mr">
+      <div class="review-card">
+        <div class="card-top">
+          <span class="tag-badge">नम्र सेवा</span>
+          <button class="btn-shuffle-icon" onclick="shuffleCard('mr-service')">↻ बदलून पहा</button>
+        </div>
+        <p class="review-quote" id="review-mr-service"></p>
+        <button class="btn-copy-cta" onclick="handleCardClick('mr-service', this)">
+          <span>📋 कॉपी करा & Google उघडा</span>
+        </button>
+      </div>
+
+      <div class="review-card">
+        <div class="card-top">
+          <span class="tag-badge">मजबूत क्वालिटी</span>
+          <button class="btn-shuffle-icon" onclick="shuffleCard('mr-quality')">↻ बदलून पहा</button>
+        </div>
+        <p class="review-quote" id="review-mr-quality"></p>
+        <button class="btn-copy-cta" onclick="handleCardClick('mr-quality', this)">
+          <span>📋 कॉपी करा & Google उघडा</span>
+        </button>
+      </div>
+
+      <div class="review-card">
+        <div class="card-top">
+          <span class="tag-badge">चांगला अनुभव</span>
+          <button class="btn-shuffle-icon" onclick="shuffleCard('mr-experience')">↻ बदलून पहा</button>
+        </div>
+        <p class="review-quote" id="review-mr-experience"></p>
+        <button class="btn-copy-cta" onclick="handleCardClick('mr-experience', this)">
+          <span>📋 कॉपी करा & Google उघडा</span>
+        </button>
+      </div>
+
+      <div class="review-card">
+        <div class="card-top">
+          <span class="tag-badge">वेळेवर डिलिव्हरी</span>
+          <button class="btn-shuffle-icon" onclick="shuffleCard('mr-delivery')">↻ बदलून पहा</button>
+        </div>
+        <p class="review-quote" id="review-mr-delivery"></p>
+        <button class="btn-copy-cta" onclick="handleCardClick('mr-delivery', this)">
+          <span>📋 कॉपी करा & Google उघडा</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="self-review-card">
+      <h3 id="self-title">Want to write your own review?</h3>
+      <p id="self-desc">Have a specific purchase to mention? Tap below to open Google directly.</p>
+      <button class="btn-direct-redirect" onclick="openDirectGoogle()">
+        <span id="self-btn-text">✍️ Write Directly on Google</span>
+      </button>
+    </div>
+
+    <p class="disclaimer">
+      Your genuine feedback helps our local business grow. Thank you!
+    </p>
+
+  </div>
+
+  <script>
+    const GOOGLE_REVIEW_URL = "https://g.page/r/CXtSAphdamhgEBM/review";
+
+    // Crisp, short, natural 15x15x15 fragments (Zero "uncle" mentions, genuine human length)
+    const humanMatrix = {
+      'en-service': {
+        openings: [
+          "Staff is very polite.",
+          "Great customer service here.",
+          "Really liked the service.",
+          "Very humble and polite staff.",
+          "Good experience with the team.",
+          "Staff is helpful and patient.",
+          "Nice and friendly environment.",
+          "Customer support was very good.",
+          "Very smooth experience at store.",
+          "Pleasant visit to the showroom.",
+          "Staff attended to us nicely.",
+          "Super cooperative staff.",
+          "Good hospitality and service.",
+          "Welcoming and polite staff.",
+          "Had a comfortable visit today."
+        ],
+        vocabs: [
+          "They showed options without rushing.",
+          "Explained wood types very nicely.",
+          "Helped us pick the right size.",
+          "No pushy sales talk at all.",
+          "Gave honest advice on durability.",
+          "Understood our budget properly.",
+          "Guided us through all designs calmly.",
+          "Answered all our questions patiently.",
+          "Took time to explain fittings.",
+          "Suggested models that fit our room.",
+          "Very patient with showing catalogs.",
+          "Listened to our needs carefully.",
+          "Helped us compare designs easily.",
+          "Guided us like trusted people.",
+          "Gave very genuine recommendations."
+        ],
+        ends: [
+          "Will surely visit again.",
+          "Highly recommend this shop!",
+          "Very satisfied with service.",
+          "Appreciate the honest guidance.",
+          "Great people to deal with.",
+          "Full 5 stars for service.",
+          "Will recommend to family.",
+          "Happy with our visit.",
+          "Keep it up!",
+          "Rare to find such humble staff.",
+          "Very happy customer.",
+          "Definitely coming back.",
+          "Smooth dealing overall.",
+          "Worth visiting for sure.",
+          "Thank you for the help!"
+        ]
+      },
+
+      'en-quality': {
+        openings: [
+          "Solid furniture quality.",
+          "Bought a bed from here.",
+          "Really liked the wood build.",
+          "Got home furniture recently.",
+          "Super happy with the build.",
+          "Quality is very sturdy.",
+          "Bought a wardrobe and table.",
+          "Finishing looks very neat.",
+          "Furniture feels heavy and strong.",
+          "Very impressed with the finish.",
+          "Sturdy and well-built furniture.",
+          "Quality is much better than online.",
+          "Purchased a sofa set here.",
+          "Good heavy wood material used.",
+          "Neat finish and strong joints."
+        ],
+        vocabs: [
+          "Wood is strong and durable.",
+          "Polish and edges are clean.",
+          "Looks very neat in our hall.",
+          "Fittings are tight and solid.",
+          "Not lightweight cheap material.",
+          "Proper solid timber used.",
+          "Detaiing is done with care.",
+          "Build feels long-lasting.",
+          "Everyone at home liked it.",
+          "Much better quality than expected.",
+          "Very solid frame and polish.",
+          "Clean work with no rough spots.",
+          "Sturdy fitting done properly.",
+          "Hardware used is top quality.",
+          "Feels durable for daily use."
+        ],
+        ends: [
+          "Total value for money.",
+          "Very satisfied with purchase.",
+          "Worth every rupee.",
+          "Solid purchase all around.",
+          "Looks premium at home.",
+          "Full paisa vasool!",
+          "Definitely built to last.",
+          "Happy with the purchase.",
+          "No complaints at all.",
+          "Great addition to our room.",
+          "Glad we bought from here.",
+          "Top quality woodwork.",
+          "100% satisfied.",
+          "Will last for years.",
+          "Super happy with it!"
+        ]
+      },
+
+      'en-experience': {
+        openings: [
+          "Reliable local furniture shop.",
+          "Good collection in store.",
+          "One of the trusted shops around.",
+          "Smooth shopping from start.",
+          "Lots of variety to choose from.",
+          "Visited on friend's recommendation.",
+          "Great showroom with good options.",
+          "Straightforward dealing here.",
+          "Best shop for home setups.",
+          "Very easy buying experience.",
+          "Honest and transparent shop.",
+          "Good designs on display.",
+          "Pleasant showroom visit.",
+          "Trusted place for furniture.",
+          "Fair and simple buying process."
+        ],
+        vocabs: [
+          "They have designs for every budget.",
+          "Gave enough time to choose.",
+          "Rates are fair without hidden charges.",
+          "Good mix of modern and classic.",
+          "Showed matching pieces for our room.",
+          "Straightforward pricing and bill.",
+          "Lots of ready models available.",
+          "Helped us stay within budget.",
+          "Clear communication on delivery.",
+          "No aggressive sales pressure.",
+          "Good collection under one roof.",
+          "Genuine advice without false promises.",
+          "Very practical design suggestions.",
+          "Staff makes shopping very simple.",
+          "Clear dealing from day one."
+        ],
+        ends: [
+          "Must visit showroom.",
+          "Definitely coming back.",
+          "10/10 experience.",
+          "Glad we shopped here.",
+          "Highly recommended!",
+          "Best furniture shop in town.",
+          "Very satisfied visit.",
+          "Peace of mind purchase.",
+          "Will suggest to friends.",
+          "A trustworthy store.",
+          "Great deal all around.",
+          "Happy with the experience.",
+          "Deserves 5 stars.",
+          "Smooth experience.",
+          "Will buy again soon."
+        ]
+      },
+
+      'en-delivery': {
+        openings: [
+          "Delivery was on time.",
+          "Got order on promised day.",
+          "Safe and quick transport.",
+          "Delivery was very smooth.",
+          "Prompt delivery to our flat.",
+          "Order reached without delay.",
+          "Delivered safely on schedule.",
+          "Very punctual delivery team.",
+          "Quick dispatch from store.",
+          "Smooth delivery process.",
+          "Furniture reached in good shape.",
+          "Very happy with delivery.",
+          "Timely drop-off at doorstep.",
+          "Delivery was handled nicely.",
+          "Safe transport of furniture."
+        ],
+        vocabs: [
+          "Handled carefully without scratches.",
+          "Assembled quickly on the spot.",
+          "Everything arrived in 100% shape.",
+          "Workers carried it up carefully.",
+          "Clean placement in our room.",
+          "Packing was neat and safe.",
+          "Tempo staff was very polite.",
+          "No damage to walls or furniture.",
+          "Fitted and placed accurately.",
+          "Handled tight staircase turns safely.",
+          "Assembled in just 15 minutes.",
+          "Staff placed it exactly where asked.",
+          "No rush or rough handling.",
+          "Checked everything before leaving.",
+          "Unloaded with proper care."
+        ],
+        ends: [
+          "Thanks for smooth delivery.",
+          "Very reliable service.",
+          "Hassle-free experience.",
+          "Appreciate the punctuality!",
+          "Great work by team.",
+          "Safe and clean delivery.",
+          "Extremely satisfied.",
+          "Smooth from start to finish.",
+          "Prompt and polite workers.",
+          "Thank you Bafna Furniture!",
+          "Quick and careful job.",
+          "Zero hassle delivery.",
+          "Well coordinated dispatch.",
+          "Full marks for delivery.",
+          "Very good service."
+        ]
+      },
+
+      'en-value': {
+        openings: [
+          "Reasonable price for good wood.",
+          "Solid furniture at fair rates.",
+          "Affordable rates in town.",
+          "Genuine pricing without bargaining.",
+          "Fair deals on furniture.",
+          "Got a good deal on our set.",
+          "Very cost-effective purchase.",
+          "Honest rates for solid furniture.",
+          "Budget friendly and sturdy.",
+          "Clear pricing with no tricks.",
+          "Great rates for durable stuff.",
+          "Sensible pricing for home goods.",
+          "No overcharging at all.",
+          "Fair quote given right away.",
+          "Very affordable and durable."
+        ],
+        vocabs: [
+          "Rate is fair for this durability.",
+          "Good options for every budget.",
+          "Worth every rupee spent.",
+          "No fake discounts, just fair price.",
+          "Much better value than online boards.",
+          "Quality justifies the pricing completely.",
+          "Straightforward bill with no extras.",
+          "Genuine wood at honest rates.",
+          "Competitive pricing compared to others.",
+          "They respect the customer's budget.",
+          "Solid build at honest market price.",
+          "High durability at reasonable cost.",
+          "Best pricing for this heavy wood.",
+          "Honest value for money items.",
+          "Fair package deal for whole set."
+        ],
+        ends: [
+          "Total paisa vasool!",
+          "Happy with the deal.",
+          "Definitely worth the money.",
+          "Very satisfied with rates.",
+          "Smart investment for home.",
+          "Best deal in the area.",
+          "Full satisfaction on price.",
+          "Will buy from here again.",
+          "Fair dealing all around.",
+          "Worth every single rupee.",
+          "Genuine and honest rates.",
+          "Happy with our purchase.",
+          "Super value deal!",
+          "A purchase well made.",
+          "Highly recommend for budget."
+        ]
+      },
+
+      // MARATHI
+      'mr-service': {
+        openings: [
+          "स्टाफचा स्वभाव खूप नम्र आहे.",
+          "इथे खूप चांगला अनुभव आला.",
+          "बोलण्याची पद्धत खूप आवडली.",
+          "स्टाफ अतिशय मनमिळाऊ आहे.",
+          "खरेदीचा अनुभव छान राहिला.",
+          "दुकानात खूप आदराने वागवले.",
+          "ग्राहकांना सन्मान देणारे दुकान.",
+          "खूप नम्र आणि मदत करणारा स्टाफ.",
+          "खरेदी करताना आपलेपणा वाटला.",
+          "सर्व कामगारांचे बोलणे चांगले आहे.",
+          "ग्राहकाला चांगले समजून घेतात.",
+          "अत्यंत सहकार्य करणारी माणसे.",
+          "खरेदीचा अनुभव सुखद राहिला.",
+          "खूप शांत आणि चांगली माणसं आहेत.",
+          "चांगली वागणूक मिळाली."
+        ],
+        vocabs: [
+          "घाई न करता व्हरायटी दाखवल्या.",
+          "जागेनुसार योग्य तेच सुचवलं.",
+          "जबरदस्ती न करता मार्गदर्शन केलं.",
+          "लाकडाबद्दल मनापासून माहिती दिली.",
+          "संयमाने निवड करायला मदत केली.",
+          "बजेटनुसार चांगले पर्याय दाखवले.",
+          "सर्व शंकांचे निरसन केले.",
+          "प्रामाणिक आणि चांगला सल्ला दिला.",
+          "डिझाईन्स समजावून सांगितल्या.",
+          "कामाची घाई अजिबात केली नाही.",
+          "खूप आपुलकीने मदत केली.",
+          "योग्य तेच फर्निचर सुचवले.",
+          "सगळे पर्याय शांतपणे दाखवले.",
+          "आम्हाला हवे तसे मॉडेल निवडले.",
+          "स्पष्ट आणि स्वच्छ माहिती दिली."
+        ],
+        ends: [
+          "नक्कीच पुन्हा भेट देऊ!",
+          "खूप समाधान वाटले.",
+          "इतरांनाही नक्की सांगेन.",
+          "उत्तम सेवेसाठी धन्यवाद!",
+          "१००% समाधानी ग्राहक.",
+          "नातेवाईकांना नक्की सुचवेन.",
+          "पुन्हा इथूनच खरेदी करू.",
+          "एक नंबर अनुभव राहिला!",
+          "खूप छान आणि नम्र सेवा.",
+          "मन जिंकणारे दुकान.",
+          "खूप आनंद झाला.",
+          "विश्वासू सेवा मिळाली.",
+          "चांगला अनुभव आला.",
+          "धन्यवाद बाफना फर्निचर!",
+          "५ स्टार सेवा!"
+        ]
+      },
+
+      'mr-quality': {
+        openings: [
+          "फर्निचरची क्वालिटी खूप छान आहे.",
+          "सामानाची क्वालिटी एकदम भारी आहे.",
+          "मजबूत फर्निचरसाठी उत्तम पर्याय.",
+          "लाकूड एकदम पक्के आणि मजबूत आहे.",
+          "फर्निचरची क्वालिटी मनापासून आवडली.",
+          "इथून बेड आणि कपाट घेतले.",
+          "दिसायला सुंदर आणि मजबूत आहे.",
+          "लाकडाचा दर्जा खूप भारी आहे.",
+          "घरासाठी सोफा घेतला, छान लुक आला.",
+          "वर्षानुवर्षे टिकणारे फर्निचर आहे.",
+          "काम अतिशय चोख करून दिले.",
+          "वस्तूंचा दर्जा पाहून समाधान वाटले.",
+          "मजबूत काम आणि स्वच्छ पॉलिश आहे.",
+          "लाकूड वजनदार आणि भरभक्कम आहे.",
+          "दर्जाच्या बाबतीत कोणतीही तडजोड नाही."
+        ],
+        vocabs: [
+          "अजिबात पोकळ काम नाही, मजबूत आहे.",
+          "फिटिंग आणि पॉलिश दोन्ही एक नंबर.",
+          "साहित्य अतिशय टिकाऊ वापरले आहे.",
+          "ऑनलाइनपेक्षा काम खूप मजबूत आहे.",
+          "पॉलिशिंगचे काम सफाईदार केले आहे.",
+          "लाकूड वजनदार आणि टिकाऊ आहे.",
+          "घरात ठेवल्यावर खूप मस्त दिसतेय.",
+          "बारीक कामही व्यवस्थित केले आहे.",
+          "फ्रेमिंग खूप मजबूत दिली आहे.",
+          "मजबुती खरोखरच कौतुकास्पद आहे.",
+          "कामात कुठेही निष्काळजीपणा नाही.",
+          "अस्सल लाकडाचा वापर केला आहे.",
+          "फिटिंग अगदी जागेवर नीट बसवली.",
+          "वापरायला खूप मजबूत वाटते.",
+          "डिझाईन आणि मजबुती दोन्ही उत्तम."
+        ],
+        ends: [
+          "पूर्ण पैसा वसूल खरेदी!",
+          "घेतलेली वस्तू खूप आवडली.",
+          "अतिशय दर्जेदार फर्निचर.",
+          "घराची शोभा वाढली!",
+          "पैशांचे पूर्ण समाधान मिळाले.",
+          "दीर्घकाळ टिकणारी खरी वस्तू.",
+          "योग्य मोबदला मिळाला.",
+          "क्वालिटी एकदम खात्रीशीर आहे.",
+          "खूप भारी काम झाले.",
+          "मनासारखी वस्तू मिळाली!",
+          "१००% उत्तम माल.",
+          "दर्जा खूप चांगला आहे.",
+          "मनापासून समाधान वाटले.",
+          "उत्तम फिनिशिंग!",
+          "खूपच मस्त काम."
+        ]
+      },
+
+      'mr-experience': {
+        openings: [
+          "चांगली व्हरायटी आणि वाजवी दर.",
+          "भागातलं सर्वात विश्वासू दुकान.",
+          "खरेदीचा अनुभव खूप छान राहिला.",
+          "फर्निचरसाठी नक्की भेट द्यावी.",
+          "व्यवहार स्वच्छ आणि पारदर्शक आहे.",
+          "शहरातील एक खात्रीशीर नाव.",
+          "इथे भरपूर प्रकार बघायला मिळतात.",
+          "लोकांच्या पसंतीस उतरलेले दुकान.",
+          "विश्वास जपणारे नामांकित दुकान.",
+          "फर्निचरसाठी योग्य ठिकाण आहे.",
+          "पहिल्याच भेटीत दुकान आवडले.",
+          "योग्य मार्गदर्शन लाभले.",
+          "अनुभवी लोकांचे दुकान आहे.",
+          "जुनं आणि विश्वासाचे दुकान.",
+          "बजेटनुसार भरपूर व्हरायटी आहे."
+        ],
+        vocabs: [
+          "निवड करताना खूप मदत झाली.",
+          "योग्य सल्ला देऊन चांगली वस्तू दिली.",
+          "किमती खिशाला परवडणाऱ्या आहेत.",
+          "बजेटनुसार चांगले पर्याय दाखवले.",
+          "कोणतीही लपवाछपवी न करता बिल केले.",
+          "सर्व सामान एकाच छताखाली मिळाले.",
+          "दिलेल्या शब्दांचे तंतोतंत पालन केले.",
+          "कमी बजेटमध्ये उत्तम माल दिला.",
+          "ग्राहकाचा वेळ आणि पैसा जपला.",
+          "योग्य निवड करायला मदत केली.",
+          "व्यवहार अगदी सरळ आणि सोपा झाला.",
+          "इथली व्यवस्था खूप छान आहे.",
+          "वाजवी किमतीत उत्तम खरेदी झाली.",
+          "पारदर्शकतेमुळे पूर्ण विश्वास बसला.",
+          "खरेदी करताना कसलाही त्रास झाला नाही."
+        ],
+        ends: [
+          "नातेवाईकांना नक्की सुचवेन.",
+          "एक नंबर अनुभव आला!",
+          "नक्कीच पुन्हा खरेदी करू.",
+          "विश्वासू दुकान, नक्की भेट द्या.",
+          "समाधानकारक व्यवहार झाला.",
+          "फर्निचरसाठी सर्वोत्तम ठिकाण.",
+          "५ स्टार अनुभव!",
+          "पुन्हा इथेच येऊ.",
+          "धन्यवाद बाफना फर्निचर!",
+          "आनंदाने शिफारस करेन.",
+          "उत्तम खरेदी झाली.",
+          "खूप समाधान वाटले.",
+          "विश्वासू कारभार आहे.",
+          "सर्वोत्तम दुकान!",
+          "मनःपूर्वक आभार."
+        ]
+      },
+
+      'mr-delivery': {
+        openings: [
+          "वेळेवर डिलिव्हरी मिळाली.",
+          "डिलिव्हरी वेळेवर आणि चोख झाली.",
+          "सामान सुरक्षितपणे आणून दिले.",
+          "डिलिव्हरी सेवा खूप तत्पर होती.",
+          "वेळेचे पक्के नियोजन होते.",
+          "सामान घरी सुरक्षित पोहोचवले.",
+          "काळजीपूर्वक डिलिव्हरी केली.",
+          "सांगितलेल्या तारखेला माल आला.",
+          "डिलिव्हरी प्रक्रिया अगदी सोपी झाली.",
+          "कामगारांनी उत्तम सहकार्य केले.",
+          "वेळेत सामान पोहोचवले.",
+          "सामान सुरक्षित हाताळले.",
+          "वेळेवर सामान मिळाल्याने सोय झाली.",
+          "सुरक्षित वाहतूक झाली.",
+          "डिलिव्हरीची कोणतीही तक्रार नाही."
+        ],
+        vocabs: [
+          "कुठेही ओरखडा पडू दिला नाही.",
+          "सामान घरात जागेवर लावून दिले.",
+          "वेळेत फिटिंग करून दिली.",
+          "जिने चढवताना सामानाची काळजी घेतली.",
+          "गाडीत पॅकिंग सुरक्षित होते.",
+          "सामान योग्य खोलीत मांडून दिले.",
+          "इतर सामानाला धक्का लागू दिला नाही.",
+          "नट-बोल्ट जागेवर घट्ट बसवले.",
+          "सर्व तपासून खात्री करून दिली.",
+          "कामगारांचे बोलणे नम्र होते.",
+          "पॅकिंगचा कचरा व्यवस्थित गोळा केला.",
+          "अडचणीच्या जागेतूनही सामान नीट आणले.",
+          "वेळेपूर्वी फोन करून सामान आणले.",
+          "सामान काळजीपूर्वक हाताळले.",
+          "लगेच जोडणी करून दिली."
+        ],
+        ends: [
+          "वेळेची शिस्त खूप आवडली.",
+          "काळजीपूर्वक सेवेबद्दल धन्यवाद!",
+          "तत्पर सेवेसाठी आभार.",
+          "चोख आणि सुरक्षित सेवा.",
+          "कोणताही त्रास झाला नाही.",
+          "डिलिव्हरी टीमचे आभार!",
+          "काम एकदम चोख झाले.",
+          "१००% सुरक्षित सेवा.",
+          "विश्वासू वाहतूक सेवा.",
+          "पूर्ण समाधानी आहोत.",
+          "धन्यवाद बाफना फर्निचर!",
+          "वेळेचे पालन केले.",
+          "सुरक्षित पोहोचवले.",
+          "कौतुक करावे असे काम.",
+          "खूप छान व्यवस्था."
+        ]
+      }
+    };
+
+    const USED_STORAGE_KEY = "bafna_used_reviews";
+
+    function getUsedReviews() {
+      try {
+        const data = localStorage.getItem(USED_STORAGE_KEY);
+        return data ? JSON.parse(data) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveUsedReview(reviewText) {
+      try {
+        const used = getUsedReviews();
+        used.push(reviewText.trim());
+        localStorage.setItem(USED_STORAGE_KEY, JSON.stringify(used));
+      } catch (e) {}
+    }
+
+    function generateUniqueReview(cardId) {
+      const pool = humanMatrix[cardId];
+      if (!pool) return "";
+
+      const usedList = getUsedReviews();
+      let chosenText = "";
+      let attempts = 0;
+
+      while (attempts < 50) {
+        const o = pool.openings[Math.floor(Math.random() * pool.openings.length)];
+        const v = pool.vocabs[Math.floor(Math.random() * pool.vocabs.length)];
+        const e = pool.ends[Math.floor(Math.random() * pool.ends.length)];
+        const candidate = `${o} ${v} ${e}`;
+
+        if (!usedList.includes(candidate)) {
+          chosenText = candidate;
+          break;
+        }
+        attempts++;
+      }
+
+      if (!chosenText) {
+        const o = pool.openings[Math.floor(Math.random() * pool.openings.length)];
+        const v = pool.vocabs[Math.floor(Math.random() * pool.vocabs.length)];
+        const e = pool.ends[Math.floor(Math.random() * pool.ends.length)];
+        chosenText = `${o} ${v} ${e}`;
+      }
+
+      return chosenText;
+    }
+
+    function shuffleCard(cardId) {
+      const el = document.getElementById(`review-${cardId}`);
+      if (!el) return;
+      el.style.opacity = '0.2';
+      setTimeout(() => {
+        el.innerText = generateUniqueReview(cardId);
+        el.style.opacity = '1';
+      }, 140);
+    }
+
+    function switchLanguage(lang, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.view-group').forEach(group => group.classList.remove('active'));
+
+      btn.classList.add('active');
+
+      const selfTitle = document.getElementById('self-title');
+      const selfDesc = document.getElementById('self-desc');
+      const selfBtnText = document.getElementById('self-btn-text');
+
+      if (lang === 'en') {
+        document.getElementById('group-en').classList.add('active');
+        selfTitle.innerText = "Want to write your own review?";
+        selfDesc.innerText = "Have a specific purchase to mention? Tap below to open Google directly.";
+        selfBtnText.innerText = "✍️ Write Directly on Google";
+      } else {
+        document.getElementById('group-mr').classList.add('active');
+        selfTitle.innerText = "तुमचा स्वतःचा रिव्ह्यू लिहायचा आहे?";
+        selfDesc.innerText = "काही वेगळा अनुभव मांडायचा असल्यास थेट Google वर लिहा:";
+        selfBtnText.innerText = "✍️ थेट Google वर Review लिहा";
+      }
+    }
+
+    function copyToClipboard(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        textarea.style.left = "-999999px";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        return Promise.resolve();
+      }
+    }
+
+    function handleCardClick(cardId, button) {
+      const el = document.getElementById(`review-${cardId}`);
+      const text = el.innerText;
+      
+      copyToClipboard(text);
+      saveUsedReview(text);
+
+      button.classList.add('copied');
+      button.innerHTML = "<span>✓ Copied! Opening Google...</span>";
+
+      setTimeout(() => {
+        window.location.href = GOOGLE_REVIEW_URL;
+      }, 300);
+    }
+
+    function openDirectGoogle() {
+      window.location.href = GOOGLE_REVIEW_URL;
+    }
+
+    // Secret Admin Tap: Tap the "Since 1985" badge 5 times to inspect burned reviews
+    let adminTapCount = 0;
+    const badgeEl = document.querySelector('.legacy-tag');
+    if (badgeEl) {
+      badgeEl.addEventListener('click', () => {
+        adminTapCount++;
+        if (adminTapCount === 5) {
+          adminTapCount = 0;
+          const used = getUsedReviews();
+          if (used.length === 0) {
+            alert("No reviews have been burned/copied on this device yet.");
+          } else {
+            alert(`Burned Reviews (${used.length}):\n\n` + used.join("\n---\n"));
+          }
+        }
+      });
+    }
+
+    // Auto-generate fresh unburned text for every card on load/refresh
+    window.addEventListener("DOMContentLoaded", () => {
+      Object.keys(humanMatrix).forEach(cardId => {
+        const el = document.getElementById(`review-${cardId}`);
+        if (el) el.innerText = generateUniqueReview(cardId);
+      });
+    });
+  </script>
+</body>
+</html>
